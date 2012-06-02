@@ -1,2 +1,35 @@
-<h1>Torneo Dream Team</h1>
-<p>Bienvenido al sitio oficial del Torneo Dream Team</p>
+
+	
+	<form class="sign-in" id="login_form" action="" method="post" >
+		<table cellspacing="0" align="right">
+			<tr>
+				<td class="html7magic">
+					<label for="email">Correo electrónico: </label>
+				</td>
+				<td class="html7magic">
+					<label for="pass">Contraseña: </label>
+				</td>
+			</tr>
+			<tr valign="bottom">
+				<td>
+					<input class="input-login" valign="bottom" type="text" class="inputtext" name="email" id="email" value="" tabindex="1" />
+				</td>
+				<td><input type="password" class="inputtext" name="pass" id="pass" tabindex="2"  />
+					
+				</td>
+				<td>
+					<%= link_to " Entrar ", signup_path, class: "btn btn-small btn-primary" %>
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+<br/>
+<div class="center hero-unit">	
+	<h1>Torneo Dream Team </h1>
+	<h2>Bienvenido al sitio oficial del Torneo Dream Team</h2>
+	<%= link_to " Registrate ", signup_path, class: "btn btn-large btn-primary" %>
+	
+	
+
+</div>
