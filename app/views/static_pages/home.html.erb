@@ -1,23 +1,23 @@
 
-	
-	<form class="sign-in" id="login_form" action="" method="post" >
+	<form class="sign-in" id="login_form" action="/sessions" method="post" >
 		<table cellspacing="0" align="right">
 			<tr>
 				<td>
-					<label for="email">Correo electrónico: </label>
+					<label for="session_email">Correo electrónico: </label>
 				</td>
 				<td>
-					<label for="pass">Contraseña: </label>
+					<label for="session_password">Contraseña: </label>
 				</td>
 			</tr>
 			<tr valign="bottom">
 				<td>
-					<input size="30" class="input-login" valign="bottom" type="text" class="inputtext" name="email" id="email" value="" tabindex="1" />
+					<input size="30" class="input-login" valign="bottom" type="text" class="inputtext" name="session[email]" id="session_email" value="" tabindex="1" />
 				</td>
-				<td><input type="password" class="inputtext" name="pass" id="pass" tabindex="2" size="30"  />
+				<td><input type="password" class="inputtext" name="session[password]" id="session_password" tabindex="2" size="30"  />
 				</td>
 				<td>
-					<%= link_to " Entrar ", signup_path, class: "btn btn-small btn-primary" %>
+					<input class="btn btn-small btn-primary" name="commit" type="submit" 
+       value="Entrar" />
 				</td>
 			</tr>
 		</table>
