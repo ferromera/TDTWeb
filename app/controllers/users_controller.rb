@@ -42,13 +42,8 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   private
-   def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Inicie Sesión por favor"
-      end
-     
-    end
+   
+   
      def correct_user
       @user = User.find(params[:id])
       redirect_to current_user, flash: { error: "No tiene autorización para realizar esta acción" }  unless current_user?(@user)
