@@ -1,0 +1,102 @@
+// Place all the styles related to the players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.HeadPlayerTable
+{
+border: 5px solid grey;
+width: 450px;
+height: 100px;
+margin-left:250px;
+text-align:center;
+vertical-align:middle;
+background-color:black;
+color:white;
+margin-top:20px;
+
+  .PlayerName{ 
+    font-size: 20px;
+   
+  }
+  
+  .PlayerWhiteRating{
+    font-size: 25px;
+    color:white;
+  }
+  
+  .PlayerYellowRating{
+    font-size: 25px;
+     color:yellow;
+  }
+  .PlayerOrangeRating{
+    font-size: 25px;
+     color:orange;
+  }
+  .PlayerRedRating{
+    font-size: 25px;
+    color:red;
+  }
+  
+  .PlayerGreenRating{
+    font-size: 25px;
+    color:green;
+  }
+    
+  .PlayerSecRating{
+    font-size: 25px;
+  }
+  .PlayerPosition{
+    font-size: 13px;
+  }
+  .PlayerPrice{
+    font-size: 12px;
+  }
+  .PlayerSecRatingName{
+    font-size: 10px;
+    vertical-align:top;
+  }
+  .PlayerNacAgeClub{
+    font-size: 10px;
+  }
+}
+.StatPlayerTable{
+  border: 5px solid grey;
+width: 450px;
+height: 400px;
+margin-left:250px;
+text-align:center;
+vertical-align:middle;
+background-color:black;
+color:white;
+padding-right:15px;
+font-size: 15px;
+margin-top:-5px;
+  td{
+    padding-left:15px;
+  }
+  .WhiteStatNumber{
+    color:white;
+    text-align:right;
+    padding-right:15px;
+  }
+  .GreenStatNumber{
+    color:green;
+    text-align:right;
+    padding-right:15px;
+  }
+  .YellowStatNumber{
+    color:yellow;
+    text-align:right;
+    padding-right:15px;
+  }  
+  .OrangeStatNumber{
+    color:orange;
+    text-align:right;
+    padding-right:15px;
+  }
+  .RedStatNumber{
+    color:red;
+    text-align:right;
+    padding-right:15px;
+  }
+}
+ 

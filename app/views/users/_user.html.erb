@@ -1,7 +1,12 @@
 #coding: utf-8
 <li>
   <%= gravatar_for user, size: 52 %>
-  <%= link_to user.name, user %>
+  <%= link_to user.name, user %> | Club: 
+  <% if user.team.nil? %>
+    -
+  <%else%>
+  	<%= link_to user.team.name, user.team %>
+  <% end %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "delete", user, method: :delete, confirm: "¿Está seguro?" %>
   <% end %>

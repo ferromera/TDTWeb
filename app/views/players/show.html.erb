@@ -1,0 +1,123 @@
+<table class="HeadPlayerTable">
+	<tr>
+		<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
+		<td rowspan="2" class=<%= ratingColor @player.overallRating %>><%= @player.overallRating %></td>
+		<td rowspan="2" class="PlayerSecRating"><%= @player.techniqueRating %></td>
+		<td rowspan="2" class="PlayerSecRating"><%= @player.speedRating %></td>
+		<td rowspan="2" class="PlayerSecRating"><%= @player.physicalRating %></td>
+		<td rowspan="2" class="PlayerSecRating"><%= @player.resistanceRating %></td>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td colspan="2" class="PlayerPosition"><%= @player.registeredPosition %></td>
+		<td class="PlayerPrice">$<%= getPrice @player.overallRating %> M</td>
+		<td class="PlayerSecRatingName">Técnica</td>
+		<td class="PlayerSecRatingName">Velocidad</td>
+		<td class="PlayerSecRatingName">Físico</td>
+		<td class="PlayerSecRatingName">Entereza</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="PlayerNacAgeClub">Nac: <%= @player.nationality %></td>
+		<td class="PlayerNacAgeClub">Edad: <%= @player.age %></td>
+		<td colspan="4" class="PlayerNacAgeClub">Club: <%= @player.club %></td>
+	</tr>
+</table>
+<table class="StatPlayerTable">
+	<tr>
+		<td>Altura</td>
+		<td class="WhiteStatNumber"><%= @player.height %> </td>
+		<td>Peso</td>
+		<td class="WhiteStatNumber"><%= @player.weight %> </td>
+	</tr>
+	<tr>
+		<td>Ataque</td>
+		<td class=<%=get100StatStyle @player.attack%>><%= @player.attack %></td>
+		<td>Balón Parado</td>
+		<td class=<%=get100StatStyle @player.placeKicking%>><%= @player.placeKicking %> </td>
+	</tr>
+	<tr>
+		<td>Defensa</td>
+		<td class=<%=get100StatStyle @player.defence%>><%= @player.defence %> </td>
+		<td>Efecto</td>
+		<td class=<%=get100StatStyle @player.swerve%>><%= @player.swerve %> </td>
+		</tr>
+	<tr>
+		<td>Regularidad</td>
+		<td class=<%=get8StatStyle @player.form%>><%= @player.form %> </td>
+		<td>Cabeza</td>
+		<td class=<%=get100StatStyle @player.headerAccuracy%>><%= @player.headerAccuracy %> </td>
+		</tr>
+	<tr>
+		<td>Velocidad punta</td>
+		<td class=<%=get100StatStyle @player.topSpeed%>><%= @player.topSpeed %> </td>
+		<td>Salto</td>
+		<td class=<%=get100StatStyle @player.jump%>><%= @player.jump %> </td>
+	</tr>
+	<tr>
+		<td>Fuerza explosiva</td>
+		<td class=<%=get100StatStyle @player.explosivePower%>><%= @player.explosivePower %> </td>
+		<td>Corpulencia</td>
+		<td class=<%=get100StatStyle @player.bodyBalance%>><%= @player.bodyBalance %> </td>
+	</tr>
+	<tr>
+		<td>Cap. de reacción</td>
+		<td class=<%=get100StatStyle @player.response%>><%= @player.response %> </td>
+		<td>Resistencia</td>
+		<td class=<%=get100StatStyle @player.stamina%>><%= @player.stamina %> </td>
+	</tr>
+	<tr>
+		<td>Velocidad de regate</td>
+		<td class=<%=get100StatStyle @player.dribbleSpeed%>><%= @player.dribbleSpeed %> </td>
+		<td>Fort. mental</td>
+		<td class=<%=get100StatStyle @player.tenacity%>><%= @player.tenacity %> </td>
+	</tr>
+	<tr>
+		<td>Habilidad de regate</td>
+		<td class=<%=get100StatStyle @player.dribbleAccuracy%>><%= @player.dribbleAccuracy %> </td>
+		<td>Juego en equipo</td>
+		<td class=<%=get100StatStyle @player.teamwork%>><%= @player.teamwork %> </td>
+	</tr>
+	<tr>
+		<td>Control del balón</td>
+		<td class=<%=get100StatStyle @player.ballControl%>><%= @player.ballControl %> </td>
+		<td>Habilidad de portero</td>
+		<td class=<%=get100StatStyle @player.goalKeepingSkills%>><%= @player.goalKeepingSkills %> </td>
+	</tr>
+	<tr>
+		<td>Precisión de pase corto</td>
+		<td class=<%=get100StatStyle @player.shortPassAccuracy%>><%= @player.shortPassAccuracy %> </td>
+		<td>Hab. pierna mala</td>
+		<td class=<%=get8StatStyle @player.weakFootAccuracy%>><%= @player.weakFootAccuracy %> </td>
+	</tr>
+	<tr>
+		<td>Velocidad de pase corto</td>
+		<td class=<%=get100StatStyle @player.shortPassSpeed%>><%= @player.shortPassSpeed %> </td>
+		<td>Uso pierna mala</td>
+		<td class=<%=get8StatStyle @player.weakFootFrequency%>><%= @player.weakFootFrequency %> </td>
+	</tr>
+	<tr>
+		<td>Precisión de pase largo</td>
+		<td class=<%=get100StatStyle @player.longPassAccuracy%>><%= @player.longPassAccuracy %> </td>
+		<td>Res. a las lesiones</td>
+		<td class=<%=getABCStatStyle @player.injuryTolerance %>><%= @player.injuryTolerance %> </td>
+	</tr>
+	<tr>
+		<td>Velocidad de pase largo</td>
+		<td class=<%=get100StatStyle @player.longPassSpeed%>><%= @player.longPassSpeed %> </td>
+		<td>Actitud ofensiva</td>
+		<td class=<%=get3StatStyle @player.attackAwareness%>><%= @player.attackAwareness %> </td>
+	</tr>
+	<tr>
+		<td>Precisión en el tiro</td>
+		<td class=<%=get100StatStyle @player.shotAccuracy%>><%= @player.shotAccuracy %> </td>
+		<td>Actitud defensiva</td>
+		<td class=<%=get3StatStyle @player.defenceAwareness%>><%= @player.defenceAwareness %> </td>
+	</tr>
+	<tr>
+		<td>Potencia de tiro</td>
+		<td class=<%=get100StatStyle @player.kickingPower%>><%= @player.kickingPower %> </td>
+		<td>&nbsp; </td>
+		<td>&nbsp; </td>
+	</tr>
+</table>
+ 
