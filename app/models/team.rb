@@ -3,4 +3,8 @@ class Team < ActiveRecord::Base
   validates :name , presence: true
   belongs_to :user
   has_many :players
+  has_attached_file :emblem , styles: { small: "128x128>" },
+                              url: "/assets/teams/:id/:style/:basename.:extension",
+                              path: ":rails_root/app/assets/images/teams/:id/:style/:basename.:extension",
+                              default_url: '/assets/teams/default_emblem.png'
 end
