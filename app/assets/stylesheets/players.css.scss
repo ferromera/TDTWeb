@@ -1,6 +1,7 @@
 // Place all the styles related to the players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$green-color: #00e000;
 .HeadPlayerTable
 {
 border: 5px solid grey;
@@ -38,7 +39,7 @@ margin-top:20px;
   
   .PlayerGreenRating{
     font-size: 25px;
-    color:green;
+    color: $green-color;
   }
     
   .PlayerSecRating{
@@ -79,7 +80,7 @@ margin-top:-5px;
     padding-right:15px;
   }
   .GreenStatNumber{
-    color:green;
+    color:$green-color;
     text-align:right;
     padding-right:15px;
   }
