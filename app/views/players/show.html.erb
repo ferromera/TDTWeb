@@ -1,3 +1,4 @@
+
 <table class="HeadPlayerTable">
 	<tr>
 		<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
@@ -9,7 +10,7 @@
 	</tr>
 	<tr></tr>
 	<tr>
-		<td colspan="2" class="PlayerPosition"><%= @player.registeredPosition %></td>
+		<td colspan="2" class="PlayerPosition"><%= getPositionImage @player.registeredPosition %></td>
 		<td class="PlayerPrice">$<%= getPrice @player.overallRating %> M</td>
 		<td class="PlayerSecRatingName">Técnica</td>
 		<td class="PlayerSecRatingName">Velocidad</td>
@@ -118,6 +119,30 @@
 		<td class=<%=get100StatStyle @player.kickingPower%>><%= @player.kickingPower %> </td>
 		<td>&nbsp; </td>
 		<td>&nbsp; </td>
+	</tr>
+</table>
+<table class="PosPlayerTable">
+	<tr>
+		<td rowspan="2" class="playerFeet"><%= if @player.strongerFoot == "Right" then image_tag "/assets/der.png" else image_tag "/assets/izq.png" end%> </td>
+		
+		<td><%= if @player.gk then image_tag "/assets/PT_ON.png" else image_tag "/assets/PT_OFF.png" end%></td>
+		<td><%= if @player.swp then image_tag "/assets/LIB_ON.png" else image_tag "/assets/LIB_OFF.png" end%></td>
+		<td><%= if @player.cb then image_tag "/assets/DEF_ON.png" else image_tag "/assets/DEF_OFF.png" end%></td>
+		<td><%= if @player.rb then image_tag "/assets/LD_ON.png" else image_tag "/assets/LD_OFF.png" end%></td>
+		<td><%= if @player.lb then image_tag "/assets/LI_ON.png" else image_tag "/assets/LI_OFF.png" end%></td>
+		<td><%= if @player.dmf then image_tag "/assets/MCD_ON.png" else image_tag "/assets/MCD_OFF.png" end%></td>
+		<td><%= if @player.cmf then image_tag "/assets/MC_ON.png" else image_tag "/assets/MC_OFF.png" end%></td>
+
+		
+	</tr>
+	<tr>
+		<td><%= if @player.rmf then image_tag "/assets/ID_ON.png" else image_tag "/assets/ID_OFF.png" end%></td>
+		<td><%= if @player.lmf then image_tag "/assets/II_ON.png" else image_tag "/assets/II_OFF.png" end%></td>
+		<td><%= if @player.amf then image_tag "/assets/MP_ON.png" else image_tag "/assets/MP_OFF.png" end%></td>
+		<td><%= if @player.rwf then image_tag "/assets/ED_ON.png" else image_tag "/assets/ED_OFF.png" end%></td>
+		<td><%= if @player.lwf then image_tag "/assets/EI_ON.png" else image_tag "/assets/EI_OFF.png" end%></td>
+		<td><%= if @player.ss then image_tag "/assets/SP_ON.png" else image_tag "/assets/SP_OFF.png" end%></td>
+		<td><%= if @player.cf then image_tag "/assets/DC_ON.png" else image_tag "/assets/DC_OFF.png" end%></td>
 	</tr>
 </table>
  

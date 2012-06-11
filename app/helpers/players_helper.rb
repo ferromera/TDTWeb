@@ -56,4 +56,24 @@ module PlayersHelper
       "RedStatNumber"
     end
   end
+  
+  def getPositionImage pos
+    case 
+    when pos=="GK" then image_tag "/assets/PT_ON.png"
+    when pos=="SWP" then image_tag "/assets/LIB_ON.png"
+    when pos=="CB" then image_tag "/assets/DEF_ON.png"
+    when pos=="RB" then image_tag "/assets/LD_ON.png"
+    when pos=="LB" then image_tag "/assets/LI_ON.png"
+    when pos=="DMF" then image_tag "/assets/MCD_ON.png"
+    when pos=="CMF" then image_tag "/assets/MC_ON.png"
+    when pos=="RMF" then image_tag "/assets/ID_ON.png"
+    when pos=="LMF" then image_tag "/assets/II_ON.png"
+    when pos=="AMF" then image_tag "/assets/MP_ON.png"
+    when pos=="RWF" then image_tag "/assets/ER_ON.png"
+    when pos=="LWF" then image_tag "/assets/EI_ON.png"
+    when pos=="SS" then image_tag "/assets/SP_ON.png"
+    when pos=="CF" then image_tag "/assets/DC_ON.png"
+    end
+
+  end
 end

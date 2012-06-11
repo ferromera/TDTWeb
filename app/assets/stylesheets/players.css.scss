@@ -48,14 +48,14 @@ margin-top:20px;
     font-size: 13px;
   }
   .PlayerPrice{
-    font-size: 12px;
+    font-size: 15px;
   }
   .PlayerSecRatingName{
     font-size: 10px;
     vertical-align:top;
   }
   .PlayerNacAgeClub{
-    font-size: 10px;
+    font-size: 15px;
   }
 }
 .StatPlayerTable{
@@ -97,6 +97,26 @@ margin-top:-5px;
     color:red;
     text-align:right;
     padding-right:15px;
+  }
+}
+.PosPlayerTable{
+   border: 5px solid grey;
+width: 450px;
+height: 66px;
+margin-left:250px;
+text-align:center;
+background-color:black;
+color:white;
+font-size: 15px;
+margin-top:-5px;
+ td{
+   vertical-align:bottom;
+ }
+  .playerFeet{
+    vertical-align:middle;
+    text-align:center;
+    padding-left:6px;
+    padding-right:6px;
   }
 }
  
