@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
   belongs_to :user
   has_many :players
   has_attached_file :emblem , styles: { small: "128x128>" , thumb: "64x64>"},
-                              url: "/assets/teams/:id/:style/:basename.:extension",
-                              path: ":rails_root/public/assets/teams/:id/:style/:basename.:extension",
+                              url: "/assets/products/teams/:id/:style/:basename.:extension",
+                              path: ":rails_root/public/assets/products/teams/:id/:style/:basename.:extension",
                               default_url: '/assets/teams/default_emblem_:style.png'
 end
