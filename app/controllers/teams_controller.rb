@@ -32,6 +32,13 @@ class TeamsController < ApplicationController
       render 'edit'
     end
   end
+  def index
+    @teams = Team.all(order: 'name ASC')
+  end
+  def plantilla
+    @team = Team.find(params[:id])
+  end
+  
   private
   def correct_user
       @user = Team.find(params[:id]).user

@@ -1,5 +1,15 @@
 
-<table class="HeadPlayerTable">
+
+<table class="PlayerContaint" >
+	<td class="PlayerButtons">
+		<form action=<%="#{@player.id}/purchase"%>  method="post">
+			<% if @player.team != current_user.team %>
+				<input type="submit" value="Comprar" class="btn btn-small btn-primary">
+			<% end %>
+		</form>
+	</td>
+	<td>
+	<table class="HeadPlayerTable">
 	<tr>
 		<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
 		<td rowspan="2" class=<%= ratingColor @player.overallRating %>><%= @player.overallRating %></td>
@@ -144,5 +154,7 @@
 		<td><%= if @player.ss then image_tag "/assets/SP_ON.png" else image_tag "/assets/SP_OFF.png" end%></td>
 		<td><%= if @player.cf then image_tag "/assets/DC_ON.png" else image_tag "/assets/DC_OFF.png" end%></td>
 	</tr>
+</table>
+	</td>
 </table>
  

@@ -1,0 +1,12 @@
+<li class="teamNameIndex">
+  <%= image_tag team.emblem.url(:thumb) %>
+  <%= link_to team.name, team %>
+</li>
+<li>
+	Dueño: <% if team.user.nil? %>
+  	Sin dueño
+  <% else %>
+  	<%= link_to "#{team.user.name} #{team.user.lastname}", team.user %>
+  <% end %>
+</li>
+</br>

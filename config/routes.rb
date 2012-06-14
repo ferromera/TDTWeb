@@ -1,12 +1,10 @@
 TDTWeb::Application.routes.draw do
-   
-
   
-
   resources :users
   resources :sessions, only: [ :new, :create, :destroy]
   resources :teams
   resources :players, only: [ :show , :index ]
+  
   root to: "static_pages#home"
   
   match '/help',    to: 'static_pages#help'
@@ -17,6 +15,8 @@ TDTWeb::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/new_team',  to: 'teams#new'
+  match '/players/:id/purchase',  to: 'players#purchase'
+  match '/teams/:id/plantilla',  to: 'teams#plantilla'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

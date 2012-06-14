@@ -29,6 +29,19 @@ module PlayersHelper
       "RedStatNumber"
     end
   end
+  def get100StatColor stat
+    if stat < 70
+      "white"
+    elsif stat <80
+      "green"
+    elsif stat <90
+      "yellow"
+    elsif stat <95  
+      "orange"
+    else
+      "red"
+    end
+  end
   def get8StatStyle stat
     if stat < 7
       "WhiteStatNumber"
@@ -75,5 +88,23 @@ module PlayersHelper
     when pos=="CF" then image_tag "/assets/DC_ON.png"
     end
 
+  end
+  def getPositionOrder pos
+    case 
+    when pos=="GK" then "1"
+    when pos=="SWP" then "2"
+    when pos=="CB" then "3"
+    when pos=="RB" then "4"
+    when pos=="LB" then "5"
+    when pos=="DMF" then "6"
+    when pos=="CMF" then "7"
+    when pos=="RMF" then "8"
+    when pos=="LMF" then "9"
+    when pos=="AMF" then "10"
+    when pos=="RWF" then "11"
+    when pos=="LWF" then "12"
+    when pos=="SS" then "13"
+    when pos=="CF" then "14"
+    end
   end
 end
