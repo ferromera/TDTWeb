@@ -82,7 +82,7 @@ module PlayersHelper
     when pos=="RMF" then image_tag "/assets/ID_ON.png"
     when pos=="LMF" then image_tag "/assets/II_ON.png"
     when pos=="AMF" then image_tag "/assets/MP_ON.png"
-    when pos=="RWF" then image_tag "/assets/ER_ON.png"
+    when pos=="RWF" then image_tag "/assets/ED_ON.png"
     when pos=="LWF" then image_tag "/assets/EI_ON.png"
     when pos=="SS" then image_tag "/assets/SP_ON.png"
     when pos=="CF" then image_tag "/assets/DC_ON.png"
