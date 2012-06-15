@@ -24,6 +24,7 @@ class TeamsController < ApplicationController
   end
   def update
     @team = Team.find(params[:id])
+    #@team.emblem=open("#{Rails.root}/app/assets/images/teams/HL.png")
     @team.emblem=params[:team][:emblem]
     if @team.update_attributes(name: params[:team][:name])
       flash[:success] = "Equipo Actualizado"
