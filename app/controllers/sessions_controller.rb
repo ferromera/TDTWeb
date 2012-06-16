@@ -4,8 +4,13 @@ class SessionsController < ApplicationController
 def create
     user = User.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or user
+      if ! sign_in user
+        flash[:error] = 'No puede iniciar sesión porque su cuenta está en proceso de autorización.'
+        redirect_to root_path
+      else 
+        redirect_back_or user
+      end
+      
     else
       flash.now[:error] = 'Combinación correo electrónico / contraseña incorrecta'
       render 'new'

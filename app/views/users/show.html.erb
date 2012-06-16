@@ -9,6 +9,17 @@
       </h1>
     </section>
   </aside>
+  
 </div>
-
-<%= @user.name %> <%= @user.lastname %>
+<div class="row">
+    <div class="span8">
+    <% if @user.microposts.any? %>
+      <h3>Mis Mensajes (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>  
+  

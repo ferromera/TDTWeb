@@ -1,4 +1,20 @@
-
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+      <div class="span8">
+      <h3>Mensajes</h3>
+      <%= render 'shared/feed' %>
+    </div>
+    </aside>
+    
+  </div>  
+<% else %>
 	<form class="sign-in" id="login_form" action="/sessions" method="post" >
 		<table cellspacing="0" align="right">
 			<tr>
@@ -28,7 +44,5 @@
 	<h1>Torneo Dream Team </h1>
 	<h2>Bienvenido al sitio oficial del Torneo Dream Team</h2>
 	<%= link_to " Registrate ", signup_path, class: "btn btn-large btn-primary" %>
-	
-	
-
 </div>
+<% end %>

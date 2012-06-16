@@ -4,6 +4,7 @@ TDTWeb::Application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy]
   resources :teams
   resources :players, only: [ :show , :index ]
+  resources :microposts, only: [:create, :destroy]
   
   root to: "static_pages#home"
   
