@@ -16,6 +16,7 @@ TDTWeb::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/new_team',  to: 'teams#new'
   match '/players/:id/purchase',  to: 'players#purchase'
+  match '/players/:id/sell',  to: 'players#sell'
   match '/teams/:id/plantilla',  to: 'teams#plantilla'
   
   # The priority is based upon order of creation:

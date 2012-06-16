@@ -3,6 +3,9 @@ module PlayersHelper
   def getPrice rating
     (((rating/10.0)**8)/1E6).round(2)
   end
+  def getSellingPrice rating
+    (((rating/10.0)**8)/1.5E6).round(2)
+  end
   def ratingColor rating
     if rating < 70
       "PlayerWhiteRating"

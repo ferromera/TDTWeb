@@ -2,11 +2,15 @@
 
 <table class="PlayerContaint" >
 	<td class="PlayerButtons">
-		<form action=<%="#{@player.id}/purchase"%>  method="post">
-			<% if @player.team.nil? %>
-				<input type="submit" value="Comprar" class="btn btn-small btn-primary">
-			<% end %>
+		<% if @player.team.nil? -%>
+		<form action=<%="#{@player.id}/purchase"%>  method="post">		
+			<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%=getPrice @player.overallRating%>M?">
 		</form>
+		<% else -%>
+		<form action=<%="#{@player.id}/sell"%>  method="post">		
+			<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%=getSellingPrice @player.overallRating%>M?">
+		</form>
+		<% end -%>
 	</td>
 	<td>
 	<table class="HeadPlayerTable">

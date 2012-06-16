@@ -30,4 +30,25 @@ class PlayersController < ApplicationController
     end
     redirect_to @player
   end
+  def sell
+     if current_user.team.nil?
+      flash[:error] = "Debe crear un equipo para poder vender."
+      redirect_to current_user
+    else
+      @player=Player.find(params[:id])
+      if current_user.team != @player.team 
+         flash[:error] = "Este jugador no es tuyo."
+      else
+          @player.team=nil;
+          @player.club="";
+          current_user.team.money+= (getSellingPrice @player.overallRating)* 1E6
+        if @player.save and current_user.team.save
+          flash[:success] = "La venta se realizó exitosamente."
+        else
+          flash[:error] = "Error al realizar la venta."
+        end
+      end
+    end
+     redirect_to @player
+  end
 end
