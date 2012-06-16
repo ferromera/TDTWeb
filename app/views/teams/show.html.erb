@@ -2,7 +2,7 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= image_tag @team.emblem.url(:small) %>
+        <%= image_tag @team.emblem , size: "128x128" %>
         <%= @team.name %>
       </h1>
       <p>Presupuesto: $<%=  '%.4g' % (@team.money/1000000.0) %> Millones</p>

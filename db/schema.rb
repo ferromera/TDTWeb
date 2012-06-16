@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611063017) do
+ActiveRecord::Schema.define(:version => 20120616075531) do
 
   create_table "players", :force => true do |t|
     t.integer  "pesPlayerId"
@@ -197,14 +197,11 @@ ActiveRecord::Schema.define(:version => 20120611063017) do
 
   create_table "teams", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                                 :null => false
+    t.datetime "updated_at",                                                 :null => false
     t.integer  "user_id"
-    t.integer  "money",               :default => 300000000
-    t.string   "emblem_file_name"
-    t.string   "emblem_content_type"
-    t.integer  "emblem_file_size"
-    t.datetime "emblem_updated_at"
+    t.integer  "money",      :default => 300000000
+    t.string   "emblem",     :default => "/assets/teams/default_emblem.png"
   end
 
   create_table "users", :force => true do |t|

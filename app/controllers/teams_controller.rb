@@ -1,4 +1,5 @@
 #coding: utf-8
+include TeamsHelper
 class TeamsController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_user,   only: [:edit, :update]
@@ -7,7 +8,7 @@ class TeamsController < ApplicationController
   end
    def create
     @team = Team.new(name: params[:team][:name])
-    @team.emblem=params[:team][:emblem]
+    @team.emblem= matchEmblem @team
     @team.user=current_user
     if @team.save
       flash[:success] = "Su equipo se creo correctamente !"
@@ -24,8 +25,6 @@ class TeamsController < ApplicationController
   end
   def update
     @team = Team.find(params[:id])
-    #@team.emblem=open("#{Rails.root}/app/assets/images/teams/HL.png")
-    @team.emblem=params[:team][:emblem]
     if @team.update_attributes(name: params[:team][:name])
       flash[:success] = "Equipo Actualizado"
       redirect_to @team
@@ -45,4 +44,5 @@ class TeamsController < ApplicationController
       @user = Team.find(params[:id]).user
       redirect_to current_user, flash: { error: "No tiene autorización para realizar esta acción" }  unless current_user?(@user)
     end
+  
 end
