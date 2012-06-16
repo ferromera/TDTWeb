@@ -26,8 +26,13 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update_attributes(name: params[:team][:name])
-      flash[:success] = "Equipo Actualizado"
-      redirect_to @team
+      @team.emblem= matchEmblem @team
+      if @team.save
+        flash[:success] = "Equipo Actualizado"
+        redirect_to @team
+      else
+        render 'edit'
+      end
     else
       render 'edit'
     end
