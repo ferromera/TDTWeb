@@ -3,7 +3,7 @@
 <table class="PlayerContaint" >
 	<td class="PlayerButtons">
 		<form action=<%="#{@player.id}/purchase"%>  method="post">
-			<% if @player.team != current_user.team %>
+			<% if @player.team.nil? %>
 				<input type="submit" value="Comprar" class="btn btn-small btn-primary">
 			<% end %>
 		</form>
