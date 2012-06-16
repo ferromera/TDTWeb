@@ -3,6 +3,8 @@ module SessionsHelper
     if user.authorization
       cookies.permanent[:remember_token] = user.remember_token
       current_user = user
+    else
+      false
     end
   end
   def current_user=(user)
