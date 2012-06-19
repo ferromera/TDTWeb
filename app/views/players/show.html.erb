@@ -1,164 +1,167 @@
-
-
 <table class="PlayerContaint" >
-	<td class="PlayerButtons">
+	<td class="PlayerButtons"> 
+	<% if !current_user.team.nil? -%>
 		<% if @player.team.nil? -%>
-		<form action=<%="#{@player.id}/purchase"%>  method="post">		
-			<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%=getPrice @player.overallRating%>M?">
-		</form>
+			<form action=<%= "#{@player.id}/purchase"%>  method="post">
+				<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%= getPrice @player.overallRating%>M?">
+			</form> 
 		<% elsif @player.team == current_user.team -%>
-		<form action=<%="#{@player.id}/sell"%>  method="post">		
-			<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%=getSellingPrice @player.overallRating%>M?">
-		</form>
+			<form action=<%= "#{@player.id}/sell"%>  method="post">
+				<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%= getSellingPrice @player.overallRating%>M?">
+			</form> 
+		<% else -%>
+			<form action="/bids"  method="post" id:"bid_form">
+				<input type="hidden" name="bid[player]" value="<%= @player.id %>"/>
+				<label> Oferta en pesos: </label>
+				<input type="text" name="bid[money]" />
+				<label> Mensaje para el club: </label>
+				<textarea cols="20" id="bid_description" name="bid[description]" placeholder="Escribe un mensaje" rows="5"></textarea>
+				<input type="submit" value="Ofertar" class="btn btn-small btn-primary">
+			</form> 
 		<% end -%>
-	</td>
+	<% end -%> </td>
 	<td>
 	<table class="HeadPlayerTable">
-	<tr>
-		<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
-		<td rowspan="2" class=<%= ratingColor @player.overallRating %>><%= @player.overallRating %></td>
-		<td rowspan="2" class="PlayerSecRating"><%= @player.techniqueRating %></td>
-		<td rowspan="2" class="PlayerSecRating"><%= @player.speedRating %></td>
-		<td rowspan="2" class="PlayerSecRating"><%= @player.physicalRating %></td>
-		<td rowspan="2" class="PlayerSecRating"><%= @player.resistanceRating %></td>
-	</tr>
-	<tr></tr>
-	<tr>
-		<td colspan="2" class="PlayerPosition"><%= getPositionImage @player.registeredPosition %></td>
-		<td class="PlayerPrice">$<%= getPrice @player.overallRating %> M</td>
-		<td class="PlayerSecRatingName">Técnica</td>
-		<td class="PlayerSecRatingName">Velocidad</td>
-		<td class="PlayerSecRatingName">Físico</td>
-		<td class="PlayerSecRatingName">Entereza</td>
-	</tr>
-	<tr>
-		<td colspan="2" class="PlayerNacAgeClub">Nac: <%= @player.nationality %></td>
-		<td class="PlayerNacAgeClub">Edad: <%= @player.age %></td>
-		<td colspan="4" class="PlayerNacAgeClub">Club: <%= @player.club %></td>
-	</tr>
-</table>
-<table class="StatPlayerTable">
-	<tr>
-		<td>Altura</td>
-		<td class="WhiteStatNumber"><%= @player.height %> </td>
-		<td>Peso</td>
-		<td class="WhiteStatNumber"><%= @player.weight %> </td>
-	</tr>
-	<tr>
-		<td>Ataque</td>
-		<td class=<%=get100StatStyle @player.attack%>><%= @player.attack %></td>
-		<td>Balón Parado</td>
-		<td class=<%=get100StatStyle @player.placeKicking%>><%= @player.placeKicking %> </td>
-	</tr>
-	<tr>
-		<td>Defensa</td>
-		<td class=<%=get100StatStyle @player.defence%>><%= @player.defence %> </td>
-		<td>Efecto</td>
-		<td class=<%=get100StatStyle @player.swerve%>><%= @player.swerve %> </td>
+		<tr>
+			<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
+			<td rowspan="2" class=<%= ratingColor @player.overallRating %>><%= @player.overallRating %></td>
+			<td rowspan="2" class="PlayerSecRating"><%= @player.techniqueRating %></td>
+			<td rowspan="2" class="PlayerSecRating"><%= @player.speedRating %></td>
+			<td rowspan="2" class="PlayerSecRating"><%= @player.physicalRating %></td>
+			<td rowspan="2" class="PlayerSecRating"><%= @player.resistanceRating %></td>
 		</tr>
-	<tr>
-		<td>Regularidad</td>
-		<td class=<%=get8StatStyle @player.form%>><%= @player.form %> </td>
-		<td>Cabeza</td>
-		<td class=<%=get100StatStyle @player.headerAccuracy%>><%= @player.headerAccuracy %> </td>
+		<tr></tr>
+		<tr>
+			<td colspan="2" class="PlayerPosition"><%= getPositionImage @player.registeredPosition %></td>
+			<td class="PlayerPrice">$<%= getPrice @player.overallRating %> M</td>
+			<td class="PlayerSecRatingName">Técnica</td>
+			<td class="PlayerSecRatingName">Velocidad</td>
+			<td class="PlayerSecRatingName">Físico</td>
+			<td class="PlayerSecRatingName">Entereza</td>
 		</tr>
-	<tr>
-		<td>Velocidad punta</td>
-		<td class=<%=get100StatStyle @player.topSpeed%>><%= @player.topSpeed %> </td>
-		<td>Salto</td>
-		<td class=<%=get100StatStyle @player.jump%>><%= @player.jump %> </td>
-	</tr>
-	<tr>
-		<td>Fuerza explosiva</td>
-		<td class=<%=get100StatStyle @player.explosivePower%>><%= @player.explosivePower %> </td>
-		<td>Corpulencia</td>
-		<td class=<%=get100StatStyle @player.bodyBalance%>><%= @player.bodyBalance %> </td>
-	</tr>
-	<tr>
-		<td>Cap. de reacción</td>
-		<td class=<%=get100StatStyle @player.response%>><%= @player.response %> </td>
-		<td>Resistencia</td>
-		<td class=<%=get100StatStyle @player.stamina%>><%= @player.stamina %> </td>
-	</tr>
-	<tr>
-		<td>Velocidad de regate</td>
-		<td class=<%=get100StatStyle @player.dribbleSpeed%>><%= @player.dribbleSpeed %> </td>
-		<td>Fort. mental</td>
-		<td class=<%=get100StatStyle @player.tenacity%>><%= @player.tenacity %> </td>
-	</tr>
-	<tr>
-		<td>Habilidad de regate</td>
-		<td class=<%=get100StatStyle @player.dribbleAccuracy%>><%= @player.dribbleAccuracy %> </td>
-		<td>Juego en equipo</td>
-		<td class=<%=get100StatStyle @player.teamwork%>><%= @player.teamwork %> </td>
-	</tr>
-	<tr>
-		<td>Control del balón</td>
-		<td class=<%=get100StatStyle @player.ballControl%>><%= @player.ballControl %> </td>
-		<td>Habilidad de portero</td>
-		<td class=<%=get100StatStyle @player.goalKeepingSkills%>><%= @player.goalKeepingSkills %> </td>
-	</tr>
-	<tr>
-		<td>Precisión de pase corto</td>
-		<td class=<%=get100StatStyle @player.shortPassAccuracy%>><%= @player.shortPassAccuracy %> </td>
-		<td>Hab. pierna mala</td>
-		<td class=<%=get8StatStyle @player.weakFootAccuracy%>><%= @player.weakFootAccuracy %> </td>
-	</tr>
-	<tr>
-		<td>Velocidad de pase corto</td>
-		<td class=<%=get100StatStyle @player.shortPassSpeed%>><%= @player.shortPassSpeed %> </td>
-		<td>Uso pierna mala</td>
-		<td class=<%=get8StatStyle @player.weakFootFrequency%>><%= @player.weakFootFrequency %> </td>
-	</tr>
-	<tr>
-		<td>Precisión de pase largo</td>
-		<td class=<%=get100StatStyle @player.longPassAccuracy%>><%= @player.longPassAccuracy %> </td>
-		<td>Res. a las lesiones</td>
-		<td class=<%=getABCStatStyle @player.injuryTolerance %>><%= @player.injuryTolerance %> </td>
-	</tr>
-	<tr>
-		<td>Velocidad de pase largo</td>
-		<td class=<%=get100StatStyle @player.longPassSpeed%>><%= @player.longPassSpeed %> </td>
-		<td>Actitud ofensiva</td>
-		<td class=<%=get3StatStyle @player.attackAwareness%>><%= @player.attackAwareness %> </td>
-	</tr>
-	<tr>
-		<td>Precisión en el tiro</td>
-		<td class=<%=get100StatStyle @player.shotAccuracy%>><%= @player.shotAccuracy %> </td>
-		<td>Actitud defensiva</td>
-		<td class=<%=get3StatStyle @player.defenceAwareness%>><%= @player.defenceAwareness %> </td>
-	</tr>
-	<tr>
-		<td>Potencia de tiro</td>
-		<td class=<%=get100StatStyle @player.kickingPower%>><%= @player.kickingPower %> </td>
-		<td>&nbsp; </td>
-		<td>&nbsp; </td>
-	</tr>
+		<tr>
+			<td colspan="2" class="PlayerNacAgeClub">Nac: <%= @player.nationality %></td>
+			<td class="PlayerNacAgeClub">Edad: <%= @player.age %></td>
+			<td colspan="4" class="PlayerNacAgeClub">Club: <%= @player.club %></td>
+		</tr>
+	</table>
+	<table class="StatPlayerTable">
+		<tr>
+			<td>Altura</td>
+			<td class="WhiteStatNumber"><%= @player.height %> </td>
+			<td>Peso</td>
+			<td class="WhiteStatNumber"><%= @player.weight %> </td>
+		</tr>
+		<tr>
+			<td>Ataque</td>
+			<td class=<%= get100StatStyle @player.attack%>><%= @player.attack %></td>
+			<td>Balón Parado</td>
+			<td class=<%= get100StatStyle @player.placeKicking%>><%= @player.placeKicking %> </td>
+		</tr>
+		<tr>
+			<td>Defensa</td>
+			<td class=<%= get100StatStyle @player.defence%>><%= @player.defence %> </td>
+			<td>Efecto</td>
+			<td class=<%= get100StatStyle @player.swerve%>><%= @player.swerve %> </td>
+		</tr>
+		<tr>
+			<td>Regularidad</td>
+			<td class=<%= get8StatStyle @player.form%>><%= @player.form %> </td>
+			<td>Cabeza</td>
+			<td class=<%= get100StatStyle @player.headerAccuracy%>><%= @player.headerAccuracy %> </td>
+		</tr>
+		<tr>
+			<td>Velocidad punta</td>
+			<td class=<%= get100StatStyle @player.topSpeed%>><%= @player.topSpeed %> </td>
+			<td>Salto</td>
+			<td class=<%= get100StatStyle @player.jump%>><%= @player.jump %> </td>
+		</tr>
+		<tr>
+			<td>Fuerza explosiva</td>
+			<td class=<%= get100StatStyle @player.explosivePower%>><%= @player.explosivePower %> </td>
+			<td>Corpulencia</td>
+			<td class=<%= get100StatStyle @player.bodyBalance%>><%= @player.bodyBalance %> </td>
+		</tr>
+		<tr>
+			<td>Cap. de reacción</td>
+			<td class=<%= get100StatStyle @player.response%>><%= @player.response %> </td>
+			<td>Resistencia</td>
+			<td class=<%= get100StatStyle @player.stamina%>><%= @player.stamina %> </td>
+		</tr>
+		<tr>
+			<td>Velocidad de regate</td>
+			<td class=<%= get100StatStyle @player.dribbleSpeed%>><%= @player.dribbleSpeed %> </td>
+			<td>Fort. mental</td>
+			<td class=<%= get100StatStyle @player.tenacity%>><%= @player.tenacity %> </td>
+		</tr>
+		<tr>
+			<td>Habilidad de regate</td>
+			<td class=<%= get100StatStyle @player.dribbleAccuracy%>><%= @player.dribbleAccuracy %> </td>
+			<td>Juego en equipo</td>
+			<td class=<%= get100StatStyle @player.teamwork%>><%= @player.teamwork %> </td>
+		</tr>
+		<tr>
+			<td>Control del balón</td>
+			<td class=<%= get100StatStyle @player.ballControl%>><%= @player.ballControl %> </td>
+			<td>Habilidad de portero</td>
+			<td class=<%= get100StatStyle @player.goalKeepingSkills%>><%= @player.goalKeepingSkills %> </td>
+		</tr>
+		<tr>
+			<td>Precisión de pase corto</td>
+			<td class=<%= get100StatStyle @player.shortPassAccuracy%>><%= @player.shortPassAccuracy %> </td>
+			<td>Hab. pierna mala</td>
+			<td class=<%= get8StatStyle @player.weakFootAccuracy%>><%= @player.weakFootAccuracy %> </td>
+		</tr>
+		<tr>
+			<td>Velocidad de pase corto</td>
+			<td class=<%= get100StatStyle @player.shortPassSpeed%>><%= @player.shortPassSpeed %> </td>
+			<td>Uso pierna mala</td>
+			<td class=<%= get8StatStyle @player.weakFootFrequency%>><%= @player.weakFootFrequency %> </td>
+		</tr>
+		<tr>
+			<td>Precisión de pase largo</td>
+			<td class=<%= get100StatStyle @player.longPassAccuracy%>><%= @player.longPassAccuracy %> </td>
+			<td>Res. a las lesiones</td>
+			<td class=<%= getABCStatStyle @player.injuryTolerance %>><%= @player.injuryTolerance %> </td>
+		</tr>
+		<tr>
+			<td>Velocidad de pase largo</td>
+			<td class=<%= get100StatStyle @player.longPassSpeed%>><%= @player.longPassSpeed %> </td>
+			<td>Actitud ofensiva</td>
+			<td class=<%= get3StatStyle @player.attackAwareness%>><%= @player.attackAwareness %> </td>
+		</tr>
+		<tr>
+			<td>Precisión en el tiro</td>
+			<td class=<%= get100StatStyle @player.shotAccuracy%>><%= @player.shotAccuracy %> </td>
+			<td>Actitud defensiva</td>
+			<td class=<%= get3StatStyle @player.defenceAwareness%>><%= @player.defenceAwareness %> </td>
+		</tr>
+		<tr>
+			<td>Potencia de tiro</td>
+			<td class=<%= get100StatStyle @player.kickingPower%>><%= @player.kickingPower %> </td>
+			<td>&nbsp; </td>
+			<td>&nbsp; </td>
+		</tr>
+	</table>
+	<table class="PosPlayerTable">
+		<tr>
+			<td rowspan="2" class="playerFeet"><%= if @player.strongerFoot == "Right" then image_tag "/assets/der.png" else image_tag "/assets/izq.png" end%> </td>
+			<td><%= if @player.gk then image_tag "/assets/PT_ON.png" else image_tag "/assets/PT_OFF.png" end%></td>
+			<td><%= if @player.swp then image_tag "/assets/LIB_ON.png" else image_tag "/assets/LIB_OFF.png" end%></td>
+			<td><%= if @player.cb then image_tag "/assets/DEF_ON.png" else image_tag "/assets/DEF_OFF.png" end%></td>
+			<td><%= if @player.rb then image_tag "/assets/LD_ON.png" else image_tag "/assets/LD_OFF.png" end%></td>
+			<td><%= if @player.lb then image_tag "/assets/LI_ON.png" else image_tag "/assets/LI_OFF.png" end%></td>
+			<td><%= if @player.dmf then image_tag "/assets/MCD_ON.png" else image_tag "/assets/MCD_OFF.png" end%></td>
+			<td><%= if @player.cmf then image_tag "/assets/MC_ON.png" else image_tag "/assets/MC_OFF.png" end%></td>
+		</tr>
+		<tr>
+			<td><%= if @player.rmf then image_tag "/assets/ID_ON.png" else image_tag "/assets/ID_OFF.png" end%></td>
+			<td><%= if @player.lmf then image_tag "/assets/II_ON.png" else image_tag "/assets/II_OFF.png" end%></td>
+			<td><%= if @player.amf then image_tag "/assets/MP_ON.png" else image_tag "/assets/MP_OFF.png" end%></td>
+			<td><%= if @player.rwf then image_tag "/assets/ED_ON.png" else image_tag "/assets/ED_OFF.png" end%></td>
+			<td><%= if @player.lwf then image_tag "/assets/EI_ON.png" else image_tag "/assets/EI_OFF.png" end%></td>
+			<td><%= if @player.ss then image_tag "/assets/SP_ON.png" else image_tag "/assets/SP_OFF.png" end%></td>
+			<td><%= if @player.cf then image_tag "/assets/DC_ON.png" else image_tag "/assets/DC_OFF.png" end%></td>
+		</tr>
+	</table></td>
 </table>
-<table class="PosPlayerTable">
-	<tr>
-		<td rowspan="2" class="playerFeet"><%= if @player.strongerFoot == "Right" then image_tag "/assets/der.png" else image_tag "/assets/izq.png" end%> </td>
-		
-		<td><%= if @player.gk then image_tag "/assets/PT_ON.png" else image_tag "/assets/PT_OFF.png" end%></td>
-		<td><%= if @player.swp then image_tag "/assets/LIB_ON.png" else image_tag "/assets/LIB_OFF.png" end%></td>
-		<td><%= if @player.cb then image_tag "/assets/DEF_ON.png" else image_tag "/assets/DEF_OFF.png" end%></td>
-		<td><%= if @player.rb then image_tag "/assets/LD_ON.png" else image_tag "/assets/LD_OFF.png" end%></td>
-		<td><%= if @player.lb then image_tag "/assets/LI_ON.png" else image_tag "/assets/LI_OFF.png" end%></td>
-		<td><%= if @player.dmf then image_tag "/assets/MCD_ON.png" else image_tag "/assets/MCD_OFF.png" end%></td>
-		<td><%= if @player.cmf then image_tag "/assets/MC_ON.png" else image_tag "/assets/MC_OFF.png" end%></td>
-
-		
-	</tr>
-	<tr>
-		<td><%= if @player.rmf then image_tag "/assets/ID_ON.png" else image_tag "/assets/ID_OFF.png" end%></td>
-		<td><%= if @player.lmf then image_tag "/assets/II_ON.png" else image_tag "/assets/II_OFF.png" end%></td>
-		<td><%= if @player.amf then image_tag "/assets/MP_ON.png" else image_tag "/assets/MP_OFF.png" end%></td>
-		<td><%= if @player.rwf then image_tag "/assets/ED_ON.png" else image_tag "/assets/ED_OFF.png" end%></td>
-		<td><%= if @player.lwf then image_tag "/assets/EI_ON.png" else image_tag "/assets/EI_OFF.png" end%></td>
-		<td><%= if @player.ss then image_tag "/assets/SP_ON.png" else image_tag "/assets/SP_OFF.png" end%></td>
-		<td><%= if @player.cf then image_tag "/assets/DC_ON.png" else image_tag "/assets/DC_OFF.png" end%></td>
-	</tr>
-</table>
-	</td>
-</table>
- 

@@ -43,6 +43,9 @@ class TeamsController < ApplicationController
   def plantilla
     @team = Team.find(params[:id])
   end
+  def negotiations
+    @team = Team.find(params[:id])
+  end
   
   private
   def correct_user

@@ -18,6 +18,7 @@
                 <li><%= link_to "Mi Equipo", current_user.team %></li>
                 <li><%= link_to "Editar", edit_team_path(current_user.team) %></li>
                 <li><%= link_to "Plantilla", "/teams/#{current_user.team.id}/plantilla" %></li>
+                <li><%= link_to "Negociaciones", "/teams/#{current_user.team.id}/negotiations" %></li>
               </ul>
             </li>
              	

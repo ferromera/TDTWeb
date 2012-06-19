@@ -5,6 +5,7 @@ TDTWeb::Application.routes.draw do
   resources :teams
   resources :players, only: [ :show , :index ]
   resources :microposts, only: [:create, :destroy]
+  resources :bids, only: [:create, :destroy]
   
   root to: "static_pages#home"
   
@@ -19,7 +20,8 @@ TDTWeb::Application.routes.draw do
   match '/players/:id/purchase',  to: 'players#purchase'
   match '/players/:id/sell',  to: 'players#sell'
   match '/teams/:id/plantilla',  to: 'teams#plantilla'
-  
+  match '/teams/:id/negotiations',  to: 'teams#negotiations'
+  match '/bids/:id/acept',  to: 'bids#acept'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,35 @@
+<%= provide(:title, 'Negociaciones') %> 
+<h1><%=@team.name%>: Negociaciones</h1>
+
+<div id="Ofertas">
+	<h2>Ofertas Recibidas</h2>
+	<% if @team.bids_recieved.empty? -%>
+	<p>No hay ofertas</p>
+	<%else-%>
+	<ol class="bids">
+		<% @team.bids_recieved.each do |r| -%>
+		<li>
+			<h3><%=link_to r.bidder.name, r.bidder%> realizó una oferta por <%=link_to r.player.name, r.player%> de $<%=(r.money/1E6).round(2)%>M.</h3>
+			<form action=<%= "/bids/#{r.id}/acept"%>  method="post">
+				<input type="submit" value="Aceptar" class="btn btn-small btn-primary" data-confirm="¿Vender a <%= r.player.name%> por $<%=(r.money/1E6).round(2)%>M?">
+			</form><%= button_to "Rechazar",{controller: :bids, action: 'destroy', id: r.id}, method: :delete ,class: "btn btn-small btn-secundary"-%>
+			<p><%=r.bidder.user.name%> dijo: "<%= r.description%>"</p>
+		</li>
+		<% end %>
+	</ol>
+	<% end %>
+	<h2>Ofertas Realizadas</h2>
+	<% if @team.bids_made.empty? -%>
+	<p>No hay ofertas</p>
+	<%else-%>
+	<ol class="bids">
+		<% @team.bids_made.each do |m| -%>
+		<li>
+			 <h3>Has realizado una oferta al <%=link_to m.offered.name, m.offered %> por <%=link_to m.player.name, m.player%> de $<%=(m.money/1E6).round(2)%>M.</h3>
+			<%= button_to "Cancelar",{controller: :bids, action: 'destroy', id: m.id}, method: :delete ,class: "btn btn-small btn-secundary"-%>
+			<p><%=m.bidder.user.name%> dijo: "<%= m.description%>"</p>
+		</li>
+		<% end %>
+	</ol>
+	<% end %>
+</div>

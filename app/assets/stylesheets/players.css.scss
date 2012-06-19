@@ -122,18 +122,27 @@ margin-top:-5px;
     padding-right:6px;
   }
 }
-.PlayerButtons{
-  padding-top: 50px;
-  vertical-align: top;
-  width: 50px;
 
-}
 .PlayerContaint{
   align:center;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   form input{
-  font-size: 18px;
-  padding: 10px;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .PlayerButtons{
+    padding-top: 40px;
+    vertical-align: top;
+ 
+    
   }
 }
+#bid_description{
+        height: 120px;
+      }
+#bid_form{
+      width: 50px;
+      
+    }
  

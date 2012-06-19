@@ -39,8 +39,8 @@ class PlayersController < ApplicationController
       if current_user.team != @player.team 
          flash[:error] = "Este jugador no es tuyo."
       else
-          @player.team=nil;
-          @player.club="";
+          @player.team=nil
+          @player.club=""
           current_user.team.money+= (getSellingPrice @player.overallRating)* 1E6
         if @player.save and current_user.team.save
           flash[:success] = "La venta se realizó exitosamente."
@@ -51,4 +51,5 @@ class PlayersController < ApplicationController
     end
      redirect_to @player
   end
+
 end

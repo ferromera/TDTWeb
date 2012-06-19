@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616223412) do
+ActiveRecord::Schema.define(:version => 20120617033609) do
+
+  create_table "bids", :force => true do |t|
+    t.integer  "bidder_id"
+    t.integer  "offered_id"
+    t.integer  "money"
+    t.integer  "player_id"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "bids", ["bidder_id"], :name => "index_bids_on_bidder_id"
+  add_index "bids", ["offered_id"], :name => "index_bids_on_offered_id"
+  add_index "bids", ["player_id"], :name => "index_bids_on_player_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

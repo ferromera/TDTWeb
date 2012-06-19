@@ -234,3 +234,40 @@ aside {
     margin-bottom: 5px;
   }
 }
+#Ofertas{
+  p{
+    text-align: center;
+  }
+  .bids{
+    list-style: none;
+    margin: 10px 0 50px 0;
+
+    li { 
+      padding: 10px 0;
+      border-top: 1px solid #e8e8e8;
+      color: black;
+      vertical-align: middle;
+      p{
+        text-align: left;
+      }
+      h3{
+        display:inline;
+        margin-right: 20px;
+      }
+
+      form{
+        display:inline;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        input{
+          display:inline;
+          margin: 0px;
+        }
+        div{display:inline;
+         
+        }
+      }
+    }
+  }
+}
