@@ -23,6 +23,7 @@ class PlayersController < ApplicationController
       current_user.team.money-= (getPrice @player.overallRating)* 1E6
         if @player.save and current_user.team.save
           flash[:success] = "La compra se realizó exitosamente."
+          News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallRating))}M.")
         else
           flash[:error] = "Error al realizar la compra."
         end
@@ -44,6 +45,7 @@ class PlayersController < ApplicationController
           current_user.team.money+= (getSellingPrice @player.overallRating)* 1E6
         if @player.save and current_user.team.save
           flash[:success] = "La venta se realizó exitosamente."
+          News.create(content:"#{@player.team.name} ha vendido a #{@player.name} por $#{(getSellingPrice (@player.overallRating))}M.")
         else
           flash[:error] = "Error al realizar la venta."
         end

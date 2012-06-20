@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Se ha enviado la solicitud de registración, se le notificará por mail cuando este aprobada."
-      redirect_to @user
+      News.create(content:"#{@user.name} #{@user.lastname} se ha unido a Torneo Dream Team.")
+      redirect_to root_path
     else
       render 'new'
     end
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
+    News.create(content:"#{@user.name} #{@user.lastname} ya no es parte de Torneo Dream Team.")
     redirect_to users_path
   end
    

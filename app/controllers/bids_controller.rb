@@ -35,6 +35,7 @@ class BidsController < ApplicationController
       @bid.offered.money+=@bid.money
       if @bid.player.save and @bid.bidder.save and @bid.offered.save and @bid.delete
         flash[:success]="La transacción se realizó exitosamente."
+        News.create(content:"#{@bid.bidder.name} ha comprado a #{@bid.player.name} al #{@bid.offered.name} por $#{(@bid.money/1E6).round(2)}M.")
         redirect_to "/teams/#{current_user.team.id}/negotiations"
       else
         flash[:error]="Ocurrió un error al realizar la transacción."

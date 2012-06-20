@@ -1,0 +1,3 @@
+<li>
+  <p><%= sprintf '%02d',news.created_at.in_time_zone("Buenos Aires").day %>/<%= sprintf '%02d',news.created_at.in_time_zone("Buenos Aires").month %>/<%= news.created_at.in_time_zone("Buenos Aires").year %>  &nbsp;  <%= sprintf '%02d',news.created_at.in_time_zone("Buenos Aires").hour  %>:<%= sprintf '%02d',news.created_at.in_time_zone("Buenos Aires").min %>:<%= sprintf '%02d',news.created_at.in_time_zone("Buenos Aires").sec %></p> <h3> <%= news.content %></h3>
+</li>

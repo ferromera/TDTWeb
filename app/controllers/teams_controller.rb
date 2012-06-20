@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
     @team.user=current_user
     if @team.save
       flash[:success] = "Su equipo se creo correctamente !"
+      News.create(content:"#{@team.user.name} #{@team.user.lastname} ha creado su equipo: #{@team.name}.")
       redirect_to @team
     else
       render 'new'
@@ -29,6 +30,7 @@ class TeamsController < ApplicationController
       @team.emblem= matchEmblem @team
       if @team.save
         flash[:success] = "Equipo Actualizado"
+        News.create(content:"#{@team.user.name} #{@team.user.lastname} ha actualizado su equipo: #{@team.name}.")
         redirect_to @team
       else
         render 'edit'
