@@ -8,15 +8,12 @@ class PlayersController < ApplicationController
    
    
   def index
-    @players =  Player.all
+    @players =  Player.find(:all, order: "name ASC")
     if !params[:name].nil?
       @search = name_filter @players ,params[:name] 
     else
       @search=@players
-      
-    end
-    
-      
+    end 
     @players = @search.paginate(:page => params[:page])
    
 
