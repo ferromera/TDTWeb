@@ -1,3 +1,4 @@
+#coding: utf-8
 module PlayersHelper
   
   def getPrice rating
@@ -109,5 +110,99 @@ module PlayersHelper
     when pos=="SS" then "13"
     when pos=="CF" then "14"
     end
+  end
+  def name_filter pls , name
+    r=Array.new
+    pls.each do |p|
+      if match_str p.name,name
+        r<<p
+      end
+     end
+     r
+  end
+  def match_str str , at
+      str= convert_to_common_chars str
+      at=convert_to_common_chars at
+      !str.match(at).nil?
+  end
+  COMMON_CHAR_OF={
+    "\u00C0" => 'a', # À
+    "\u00C1" => 'a', # Á
+    "\u00C2" => 'a', # Â
+    "\u00C3" => 'a', # Ã
+    "\u00C4" => 'a', # Ä
+    "\u00C5" => 'a', # Å
+    "\u00C6" => 'a', # Æ
+    "\u00C7" => 'c', # Ç
+    "\u00C8" => 'e', # È
+    "\u00C9" => 'e', # É
+    "\u00CA" => 'e', # Ê
+    "\u00CB" => 'e', # Ë
+    "\u00CC" => 'i', # Ì
+    "\u00CD" => 'i', # Í
+    "\u00CE" => 'i', # Î
+    "\u00CF" => 'i', # Ï
+    "\u00D0" => 'd', # Ð
+    "\u00D1" => 'ñ', # Ñ
+    "\u00D2" => 'o', # Ò
+    "\u00D3" => 'o', # Ó
+    "\u00D4" => 'o', # Ô
+    "\u00D5" => 'o', # Õ
+    "\u00D6" => 'o', # Ö
+    "\u00D7" => 'x', # ×
+    "\u00D8" => 'o', # Ø
+    "\u00D9" => 'u', # Ù
+    "\u00DA" => 'u', # Ú
+    "\u00DB" => 'u', # Û
+    "\u00DC" => 'u', # Ü
+    "\u00DD" => 'y', # Ý
+    "\u00DE" => 'p', # Þ
+    "\u00DF" => 'b', # ß
+    "\u00E0" => 'a', # à
+    "\u00E1" => 'a', # á
+    "\u00E2" => 'a', # â
+    "\u00E3" => 'a', # ã
+    "\u00E4" => 'a', # ä
+    "\u00E5" => 'a', # å
+    "\u00E6" => 'a', # æ
+    "\u00E7" => 'c', # ç
+    "\u00E8" => 'e', # è
+    "\u00E9" => 'e', # é
+    "\u00EA" => 'e', # ê
+    "\u00EB" => 'e', # ë
+    "\u00EC" => 'i', # ì
+    "\u00ED" => 'i', # í
+    "\u00EE" => 'i', # î
+    "\u00EF" => 'i', # ï
+    "\u00F0" => 'd', # ð
+    "\u00F1" => 'ñ', # ñ
+    "\u00F2" => 'o', # ò
+    "\u00F3" => 'o', # ó
+    "\u00F4" => 'o', # ô
+    "\u00F5" => 'o', # õ
+    "\u00F6" => 'o', # ö
+    "\u00F7" => '%', # ÷
+    "\u00F8" => 'o', # ø
+    "\u00F9" => 'u', # ù
+    "\u00FA" => 'u', # ú
+    "\u00FB" => 'u', # û
+    "\u00FC" => 'u', # ü
+    "\u00FD" => 'y', # ý
+    "\u00FE" => 'p', # þ
+    "\u00FF" => 'y'  # ÿ
+  }
+  def convert_to_common_chars str
+      s=""
+      str.force_encoding("utf-8").downcase.each_char do |char|
+        c=COMMON_CHAR_OF[char]
+        if c.nil?
+          s<<char
+       
+        else
+          s<<c
+        end
+        
+      end
+      s
   end
 end

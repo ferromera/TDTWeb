@@ -1,9 +1,25 @@
 #coding: utf-8
 include PlayersHelper
+require 'will_paginate/array'
 class PlayersController < ApplicationController
    before_filter :signed_in_user
+   
+   
+   
+   
   def index
-    @players = Player.all(order: 'name ASC')
+    @players =  Player.all
+    if !params[:name].nil?
+      @search = name_filter @players ,params[:name] 
+    else
+      @search=@players
+      
+    end
+    
+      
+    @players = @search.paginate(:page => params[:page])
+   
+
   end
 
   def show
@@ -53,5 +69,8 @@ class PlayersController < ApplicationController
     end
      redirect_to @player
   end
-
+ 
+  
+    
+   
 end
