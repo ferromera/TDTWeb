@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
       @players = case
       when params[:player][:order]=="nombreA" then Player.find(:all, order: "name ASC")
       when params[:player][:order]=="nombreD" then Player.find(:all, order: "name DESC")
-      when params[:player][:order]=="posicionA" then Player.find(:all, order: "registeredPosition ASC")
+      when params[:player][:order]=="posicionA" then Player.find(:all, order: "registeredposition ASC")
       when params[:player][:order]=="posicionD" then Player.find(:all, order: "registeredPosition DESC")
       when params[:player][:order]=="edadA" then Player.find(:all, order: "age ASC")
       when params[:player][:order]=="edadD" then Player.find(:all, order: "age DESC")
@@ -22,8 +22,8 @@ class PlayersController < ApplicationController
       when params[:player][:order]=="nacionalidadD" then Player.find(:all, order: "nationality DESC")
       when params[:player][:order]=="clubA" then Player.find(:all, order: "club ASC")
       when params[:player][:order]=="clubD" then Player.find(:all, order: "club DESC")
-      when params[:player][:order]=="valoracionA" then Player.find(:all, order: "overallRating ASC")
-      when params[:player][:order]=="valoracionD" then Player.find(:all, order: "overallRating DESC")
+      when params[:player][:order]=="valoracionA" then Player.find(:all, order: "overallrating ASC")
+      when params[:player][:order]=="valoracionD" then Player.find(:all, order: "overallrating DESC")
       end
     end
     @players = name_filter @players ,params[:name] 
