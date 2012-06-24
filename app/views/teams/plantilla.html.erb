@@ -6,7 +6,7 @@
   </thead>
   <tbody>
   <% @team.players.each do |p| %>
-  <tr><td sorttable_customkey=<%= getPositionOrder p.registeredPosition %>><%= getPositionImage p.registeredPosition %></td>
+  <tr><td sorttable_customkey=<%= getPositionOrder p.position %>><%= getPositionImage p.position %></td>
   	<td id="NombrePlantilla"><%=link_to p.name, p%></td>
   	<td color=<%=get100StatColor p.overallrating %>><%=p.overallrating%></td>
   	<td><%=p.age%></td>
