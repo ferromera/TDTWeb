@@ -350,11 +350,11 @@ module PlayersHelper
   end
   def match_rat p, min, max
     if min.nil? or min.empty?
-      return true if p.overallRating <= max.to_i
+      return true if p.overallrating <= max.to_i
      elsif max.nil? or max.empty?
-       return true if p.overallRating >= min.to_i
+       return true if p.overallrating >= min.to_i
      else
-       return true if p.overallRating >= min.to_i and p.overallRating <=max.to_i
+       return true if p.overallrating >= min.to_i and p.overallrating <=max.to_i
     end
     return false
   end  
