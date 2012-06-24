@@ -9,12 +9,10 @@ class PlayersController < ApplicationController
    
   def index
     @players =  Player.find(:all, order: "name ASC")
-    if !params[:name].nil?
-      @search = name_filter @players ,params[:name] 
-    else
-      @search=@players
-    end 
-    @players = @search.paginate(:page => params[:page])
+    @players = name_filter @players ,params[:name] 
+    @last_pos= "PT"
+    @players = pos_filter @players ,params[:position] 
+    @players = @players.paginate(:page => params[:page])
    
 
   end

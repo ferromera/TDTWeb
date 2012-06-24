@@ -112,6 +112,7 @@ module PlayersHelper
     end
   end
   def name_filter pls , name
+    return pls if name.nil?
     r=Array.new
     pls.each do |p|
       if match_str p.name,name
@@ -204,5 +205,117 @@ module PlayersHelper
         
       end
       s
+  end
+  def pos_filter pls , pos
+    return pls if pos.nil?
+    r=Array.new
+    pls.each do |p|
+      if match_pos p, pos
+        r<<p
+      end
+     end
+     r
+  end
+  def match_pos p, pos
+    if pos[:orsearch] == "1"
+            matched=false
+          else
+            matched=true
+          end
+
+    anypos=false
+    pos.each_key do |k|
+      if k!="orsearch" and pos[k]=="1"
+        anypos=true
+        case 
+        when k=="PT"  
+          if pos[:orsearch] == "1"
+            return true if p.gk
+          else
+            matched= (matched and p.gk) 
+            
+          end
+        when k=="DC"  
+          if pos[:orsearch] == "1"
+            return true if p.cb
+          else
+            matched= (matched and p.cb)  
+          end
+        when k=="LIB"  
+          if pos[:orsearch] == "1"
+            return true if p.swp
+          else
+            matched= (matched and p.swp)  
+          end
+        when k=="LI"  
+          if pos[:orsearch] == "1"
+            return true if p.lb
+          else
+            matched= (matched and p.lb)  
+          end
+        when k=="LD"  
+          if pos[:orsearch] == "1"
+            return true if p.rb
+          else
+            matched= (matched and p.rb)  
+          end
+        when k=="MCD"  
+          if pos[:orsearch] == "1"
+            return true if p.dmf
+          else
+            matched= (matched and p.dmf)  
+          end
+        when k=="MC"  
+          if pos[:orsearch] == "1"
+            return true if p.cmf
+          else
+            matched= (matched and p.cmf)  
+          end
+        when k=="II"  
+          if pos[:orsearch] == "1"
+            return true if p.lmf
+          else
+            matched= (matched and p.lmf)  
+          end
+        when k=="ID"  
+          if pos[:orsearch] == "1"
+            return true if p.rmf
+          else
+            matched= (matched and p.rmf)  
+          end
+        when k=="MP"  
+          if pos[:orsearch] == "1"
+            return true if p.amf
+          else
+            matched= (matched and p.amf)  
+          end
+        when k=="EI"  
+          if pos[:orsearch] == "1"
+            return true if p.lwf
+          else
+            matched= (matched and p.lwf)  
+          end
+        when k=="ED"  
+          if pos[:orsearch] == "1"
+            return true if p.rwf
+          else
+            matched= (matched and p.rwf)  
+          end
+        when k=="SD"  
+          if pos[:orsearch] == "1"
+            return true if p.ss
+          else
+            matched= (matched and p.ss)  
+          end
+        when k=="CF"  
+          if pos[:orsearch] == "1"
+            return true if p.cf
+          else
+            matched= (matched and p.cf)  
+          end
+        end
+      end
+    end
+     (not anypos ) or matched
   end
 end
