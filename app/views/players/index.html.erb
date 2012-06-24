@@ -4,12 +4,12 @@
 
 <%= form_tag('/players', :method => :get) do %>   
  <p>   
-<h3>Nombre:</h3>   
-<%= text_field_tag :name %>  
+<h4>Nombre</h4>   
+<%= text_field_tag :name, nil,value: params[:name] %>  
 
 
 <div class="form_row" id="buscarPosiciones">
-    <h3>Posición:</h3>  
+    <h4>Posición</h4>  
 	<div id="posicionesCheckBox">
 	<div>
 		<div><%= getPositionImage "GK" %></div>
@@ -50,15 +50,73 @@
 	<%= radio_button "position", "orsearch", "1" , :checked => (params[:position].nil? or params[:position][:orsearch]=="1")  %> O
 	<%= radio_button "position", "orsearch", "0" , :checked => ((!params[:position].nil?) and params[:position][:orsearch]=="0" )%> Y
 	</div>
-    
+    <div id="busquedaEdad">
+   		<h4>Edad</h4>  
+   		<div>
+   		<%= label_tag  "mín:"%>  
+		<%= text_field_tag :agemin ,nil,value: params[:agemin] %> 
+		<%= label_tag  "máx:"%>  
+		<%= text_field_tag :agemax ,nil,value: params[:agemax] %> 
+		</div> 
+   	</div>
+   	<div id="busquedaRating">
+   		<h4>Valoración</h4>  
+   		<div>
+   		<%= label_tag  "mín:"%>  
+		<%= text_field_tag :ratmin ,nil,value: params[:ratmin] %> 
+		<%= label_tag  "máx:"%>  
+		<%= text_field_tag :ratmax ,nil,value: params[:ratmax] %> 
+		</div> 
+   	</div>
+   	<div id="ordenJugadores">
+    <h4>Ordenar por:</h4>
+    <li>
+    	<p>Pos</p>
+    	<%= radio_button "player", "order", "posicionA" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionA")  %> Asc
+    	<%= radio_button "player", "order", "posicionD" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionD")  %> Desc
+    </li> 
+    <li>
+    	<p>Nombre</p>
+    	<%= radio_button "player", "order", "nombreA" , :checked => (params[:player].nil? or params[:player][:order]=="nombreA")  %> Asc
+    	<%= radio_button "player", "order", "nombreD" , :checked => (!params[:player].nil? and params[:player][:order]=="nombreD")  %> Desc
+    </li>  
+    <li>
+    	<p>Edad</p>
+    	<%= radio_button "player", "order", "edadA" , :checked => (!params[:player].nil? and params[:player][:order]=="edadA")  %> Asc
+    	<%= radio_button "player", "order", "edadD" , :checked => (!params[:player].nil? and params[:player][:order]=="edadD")  %> Desc
+    </li>  
+    <li>
+    	<p>Nac</p>
+    	<%= radio_button "player", "order", "nacionalidadA" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadA")  %> Asc
+    	<%= radio_button "player", "order", "nacionalidadD" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadD")  %> Desc
+    </li>  
+    <li>
+    	<p>Valoración</p>
+    	<%= radio_button "player", "order", "valoracionA" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionA")  %> Asc
+    	<%= radio_button "player", "order", "valoracionD" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionD")  %> Desc
+    </li>  
+    <li>
+    	<p>Club</p>
+    	<%= radio_button "player", "order", "clubA" , :checked => (!params[:player].nil? and params[:player][:order]=="clubA")  %> Asc
+    	<%= radio_button "player", "order", "clubD" , :checked => (!params[:player].nil? and params[:player][:order]=="clubD")  %> Desc
+    </li>  
+     
+	</div>
 </div> 
 </p>   
 <p class="button"><%= submit_tag "Buscar"  %> </p>   
 <% end %>  
 
 <%= will_paginate @players %>
-<ul class="players">
-  <%= render @players %>
-</ul>
+<table id="playersList" class="sortable">
+	<thead>
+	<tr>
+		<th>Posición</th><th>Nombre</th><th>Club</th><th>Nacionalidad</th><th>Edad</th><th>Valoración</th><th>Precio</th>
+	</th>
+	</thead>
+	<tbody>
+ 		<%= render @players %>
+  	</tbody>	
+</table>
 
 <%= will_paginate @players%>

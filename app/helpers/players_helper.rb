@@ -318,4 +318,44 @@ module PlayersHelper
     end
      (not anypos ) or matched
   end
+  def age_filter pls, min, max
+    return pls if (min.nil? or min.empty?) and (max.nil? or max.empty?)
+    r=Array.new
+    pls.each do |p|
+      if match_age p, min, max
+        r<<p
+      end
+     end
+     r
+  end
+  def match_age p, min, max
+    if min.nil? or min.empty?
+      return true if p.age <= max.to_i
+     elsif max.nil? or max.empty?
+       return true if p.age >= min.to_i
+     else
+       return true if p.age >= min.to_i and p.age <=max.to_i
+    end
+    return false
+  end
+  def rat_filter pls, min, max
+    return pls if (min.nil? or min.empty?) and (max.nil? or max.empty?)
+    r=Array.new
+    pls.each do |p|
+      if match_rat p, min, max
+        r<<p
+      end
+     end
+     r
+  end
+  def match_rat p, min, max
+    if min.nil? or min.empty?
+      return true if p.overallRating <= max.to_i
+     elsif max.nil? or max.empty?
+       return true if p.overallRating >= min.to_i
+     else
+       return true if p.overallRating >= min.to_i and p.overallRating <=max.to_i
+    end
+    return false
+  end  
 end

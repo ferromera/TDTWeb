@@ -1,4 +1,10 @@
 
-<li>
-  <%= link_to player.name, player %>
-</li>
+<tr>
+  <td sorttable_customkey=<%= getPositionOrder player.registeredPosition %>><%= getPositionImage player.registeredPosition %></td>	
+  <td><%= link_to player.name, player %></td>
+  <td><%= player.club %></td>
+  <td><%= player.nationality %></td>
+  <td><%= player.age %></td>
+  <td><%= player.overallRating %></td>
+  <td sorttable_customkey=<%=getPrice player.overallRating%>>$<%=getPrice player.overallRating%>M</td>
+</tr>

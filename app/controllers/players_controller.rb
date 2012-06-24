@@ -8,10 +8,28 @@ class PlayersController < ApplicationController
    
    
   def index
-    @players =  Player.find(:all, order: "name ASC")
+    if params[:player].nil?
+        @players =Player.find(:all, order: "name ASC")
+    else
+      @players = case
+      when params[:player][:order]=="nombreA" then Player.find(:all, order: "name ASC")
+      when params[:player][:order]=="nombreD" then Player.find(:all, order: "name DESC")
+      when params[:player][:order]=="posicionA" then Player.find(:all, order: "registeredPosition ASC")
+      when params[:player][:order]=="posicionD" then Player.find(:all, order: "registeredPosition DESC")
+      when params[:player][:order]=="edadA" then Player.find(:all, order: "age ASC")
+      when params[:player][:order]=="edadD" then Player.find(:all, order: "age DESC")
+      when params[:player][:order]=="nacionalidadA" then Player.find(:all, order: "nationality ASC")
+      when params[:player][:order]=="nacionalidadD" then Player.find(:all, order: "nationality DESC")
+      when params[:player][:order]=="clubA" then Player.find(:all, order: "club ASC")
+      when params[:player][:order]=="clubD" then Player.find(:all, order: "club DESC")
+      when params[:player][:order]=="valoracionA" then Player.find(:all, order: "overallRating ASC")
+        when params[:player][:order]=="valoracionD" then Player.find(:all, order: "overallRating DESC")
+      end
+    end
     @players = name_filter @players ,params[:name] 
-    @last_pos= "PT"
     @players = pos_filter @players ,params[:position] 
+    @players = age_filter @players ,params[:agemin] ,params[:agemax]
+    @players = rat_filter @players ,params[:ratmin] ,params[:ratmax]
     @players = @players.paginate(:page => params[:page])
    
 

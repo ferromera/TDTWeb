@@ -174,4 +174,63 @@ margin-top:-5px;
     }
   }
 }
-
+#busquedaEdad{
+  div{
+    display:inline;
+    margin-left: 30px;
+    label{
+    display:inline;
+  }
+  input{
+    display:inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+  }
+  
+  }
+  
+  
+}
+#busquedaRating{
+  div{
+    display:inline;
+    margin-left: 30px;
+    label{
+    display:inline;
+  }
+  input{
+    display:inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30px;
+  }
+  }
+}
+#playersList{
+  tr{
+    th{
+      width: auto;
+    padding-right: 30px;
+    }
+    td{
+    width: auto;
+    padding-right: 30px;
+    text-align:center;
+  }
+  }
+}
+#ordenJugadores{
+  li{
+    display: inline;
+    padding-left:10px;
+    
+    p{
+       display: inline;
+       padding-right: 10px;
+    }
+    input{
+       display: inline;
+    }
+  }
+}
