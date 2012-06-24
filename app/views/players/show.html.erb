@@ -3,11 +3,11 @@
 	<% if !current_user.team.nil? -%>
 		<% if @player.team.nil? -%>
 			<form action=<%= "#{@player.id}/purchase"%>  method="post">
-				<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%= getPrice @player.overallRating%>M?">
+				<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%= getPrice @player.overallrating%>M?">
 			</form> 
 		<% elsif @player.team == current_user.team -%>
 			<form action=<%= "#{@player.id}/sell"%>  method="post">
-				<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%= getSellingPrice @player.overallRating%>M?">
+				<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%= getSellingPrice @player.overallrating%>M?">
 			</form> 
 		<% else -%>
 			<form action="/bids"  method="post" id:"bid_form">
@@ -24,7 +24,7 @@
 	<table class="HeadPlayerTable">
 		<tr>
 			<td rowspan="2" colspan="2" class="PlayerName"><%= @player.name %></td>
-			<td rowspan="2" class=<%= ratingColor @player.overallRating %>><%= @player.overallRating %></td>
+			<td rowspan="2" class=<%= ratingColor @player.overallrating %>><%= @player.overallrating %></td>
 			<td rowspan="2" class="PlayerSecRating"><%= @player.techniqueRating %></td>
 			<td rowspan="2" class="PlayerSecRating"><%= @player.speedRating %></td>
 			<td rowspan="2" class="PlayerSecRating"><%= @player.physicalRating %></td>
@@ -33,7 +33,7 @@
 		<tr></tr>
 		<tr>
 			<td colspan="2" class="PlayerPosition"><%= getPositionImage @player.registeredPosition %></td>
-			<td class="PlayerPrice">$<%= getPrice @player.overallRating %> M</td>
+			<td class="PlayerPrice">$<%= getPrice @player.overallrating %> M</td>
 			<td class="PlayerSecRatingName">Técnica</td>
 			<td class="PlayerSecRatingName">Velocidad</td>
 			<td class="PlayerSecRatingName">Físico</td>

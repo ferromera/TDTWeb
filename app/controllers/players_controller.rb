@@ -22,8 +22,8 @@ class PlayersController < ApplicationController
       when params[:player][:order]=="nacionalidadD" then Player.find(:all, order: "nationality DESC")
       when params[:player][:order]=="clubA" then Player.find(:all, order: "club ASC")
       when params[:player][:order]=="clubD" then Player.find(:all, order: "club DESC")
-      when params[:player][:order]=="valoracionA" then Player.find(:all, order: "club ASC")
-      when params[:player][:order]=="valoracionD" then Player.find(:all, order: "club DESC")
+      when params[:player][:order]=="valoracionA" then Player.find(:all, order: "overallrating ASC")
+      when params[:player][:order]=="valoracionD" then Player.find(:all, order: "overallrating DESC")
       end
     end
     @players = name_filter @players ,params[:name] 
@@ -44,15 +44,15 @@ class PlayersController < ApplicationController
       redirect_to current_user
     else
       @player=Player.find(params[:id])
-      if current_user.team.money < (getPrice (@player.overallRating))* 1E6
+      if current_user.team.money < (getPrice (@player.overallrating))* 1E6
          flash[:error] = "Presupuesto insuficiente."
       else
           @player.team=current_user.team;
       @player.club=current_user.team.name;
-      current_user.team.money-= (getPrice @player.overallRating)* 1E6
+      current_user.team.money-= (getPrice @player.overallrating)* 1E6
         if @player.save and current_user.team.save
           flash[:success] = "La compra se realizó exitosamente."
-          News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallRating))}M.")
+          News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallrating))}M.")
         else
           flash[:error] = "Error al realizar la compra."
         end
@@ -71,10 +71,10 @@ class PlayersController < ApplicationController
       else
           @player.team=nil
           @player.club=""
-          current_user.team.money+= (getSellingPrice @player.overallRating)* 1E6
+          current_user.team.money+= (getSellingPrice @player.overallrating)* 1E6
         if @player.save and current_user.team.save
           flash[:success] = "La venta se realizó exitosamente."
-          News.create(content:"#{@player.team.name} ha vendido a #{@player.name} por $#{(getSellingPrice (@player.overallRating))}M.")
+          News.create(content:"#{@player.team.name} ha vendido a #{@player.name} por $#{(getSellingPrice (@player.overallrating))}M.")
         else
           flash[:error] = "Error al realizar la venta."
         end

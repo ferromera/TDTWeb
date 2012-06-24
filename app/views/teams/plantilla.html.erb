@@ -8,10 +8,10 @@
   <% @team.players.each do |p| %>
   <tr><td sorttable_customkey=<%= getPositionOrder p.registeredPosition %>><%= getPositionImage p.registeredPosition %></td>
   	<td id="NombrePlantilla"><%=link_to p.name, p%></td>
-  	<td color=<%=get100StatColor p.overallRating %>><%=p.overallRating%></td>
+  	<td color=<%=get100StatColor p.overallrating %>><%=p.overallrating%></td>
   	<td><%=p.age%></td>
   	<td><%=p.height%></td>
-  	<td sorttable_customkey=<%=getPrice p.overallRating%>>$<%=getPrice p.overallRating%>M</td></tr>
+  	<td sorttable_customkey=<%=getPrice p.overallrating%>>$<%=getPrice p.overallrating%>M</td></tr>
   <% end %>
   </tbody>
 </table>
