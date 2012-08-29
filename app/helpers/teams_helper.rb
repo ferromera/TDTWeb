@@ -7,7 +7,7 @@ module TeamsHelper
       when ((team.name.downcase == "comando superior peronista") or 
         (team.name.downcase == "c. s. peronista")) then "/assets/teams/CS.png"
       when team.name.downcase == "saint bastian" then "/assets/teams/SB.png"
-      when team.name.downcase == "sportivo fiesta" then "/assets/teams/DF.png"
+      when team.name.downcase == "sportivo fiesta" then "/assets/teams/SF.png"
       when team.name.downcase == "uspallata f.b." then "/assets/teams/US.png"
       when team.name.downcase == "antigua y barbuda" then "/assets/teams/AB.png"
       end
