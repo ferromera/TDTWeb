@@ -3,7 +3,7 @@ module TeamsHelper
       case
       when team.name.downcase == "honolulu lights" then "/assets/teams/HL.png"
       when team.name.downcase == "bazinga f.c." then "/assets/teams/BZ.png"
-      when team.name.downcase == "wisconsin badgers" then "/assets/teams/WB.png"
+      when team.name.downcase == "wisconsin badgers" then "/assets/teams/WS.png"
       when ((team.name.downcase == "comando superior peronista") or 
         (team.name.downcase == "c. s. peronista")) then "/assets/teams/CS.png"
       when team.name.downcase == "saint bastian" then "/assets/teams/SB.png"
