@@ -44,6 +44,10 @@ class PlayersController < ApplicationController
       redirect_to current_user
     else
       @player=Player.find(params[:id])
+      if @player.team != nil then
+        flash[:error] = "El jugador pertenece a otro equipo, realice una oferta."
+        redirect_to @player
+      end
       if current_user.team.money < (getPrice (@player.overallrating))* 1E6
          flash[:error] = "Presupuesto insuficiente."
       else
