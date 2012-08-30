@@ -46,19 +46,19 @@ class PlayersController < ApplicationController
       @player=Player.find(params[:id])
       if @player.team != nil then
         flash[:error] = "El jugador pertenece a otro equipo, realice una oferta."
-        redirect_to @player
-      end
-      if current_user.team.money < (getPrice (@player.overallrating))* 1E6
-         flash[:error] = "Presupuesto insuficiente."
       else
-          @player.team=current_user.team;
-      @player.club=current_user.team.name;
-      current_user.team.money-= (getPrice @player.overallrating)* 1E6
-        if @player.save and current_user.team.save
-          flash[:success] = "La compra se realizó exitosamente."
-          News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallrating))}M.")
+        if current_user.team.money < (getPrice (@player.overallrating))* 1E6
+           flash[:error] = "Presupuesto insuficiente."
         else
-          flash[:error] = "Error al realizar la compra."
+            @player.team=current_user.team;
+            @player.club=current_user.team.name;
+            current_user.team.money-= (getPrice @player.overallrating)* 1E6
+            if @player.save and current_user.team.save
+              flash[:success] = "La compra se realizó exitosamente."
+              News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallrating))}M.")
+            else
+              flash[:error] = "Error al realizar la compra."
+            end
         end
       end
     end
