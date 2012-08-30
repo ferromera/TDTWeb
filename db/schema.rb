@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620000854) do
+ActiveRecord::Schema.define(:version => 20120624213333) do
 
   create_table "bids", :force => true do |t|
-    t.integer  "bidder_id"
-    t.integer  "offered_id"
-    t.integer  "money"
-    t.integer  "player_id"
-    t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer   "bidder_id"
+    t.integer   "offered_id"
+    t.integer   "money"
+    t.integer   "player_id"
+    t.string    "description"
+    t.timestamp "created_at",  :null => false
+    t.timestamp "updated_at",  :null => false
   end
 
   add_index "bids", ["bidder_id"], :name => "index_bids_on_bidder_id"
@@ -28,18 +28,18 @@ ActiveRecord::Schema.define(:version => 20120620000854) do
   add_index "bids", ["player_id"], :name => "index_bids_on_player_id"
 
   create_table "microposts", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "content"
+    t.integer   "user_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
   create_table "news", :force => true do |t|
-    t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "content"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "players", :force => true do |t|
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(:version => 20120620000854) do
     t.string   "name"
     t.string   "nationality"
     t.string   "club"
-    t.string   "registeredPosition"
+    t.string   "position"
     t.integer  "age"
-    t.integer  "overallRating"
+    t.integer  "overallrating"
     t.string   "techniqueRating"
     t.string   "speedRating"
     t.string   "physicalRating"
@@ -167,7 +167,7 @@ ActiveRecord::Schema.define(:version => 20120620000854) do
   add_index "players", ["lwf"], :name => "index_players_on_lwf"
   add_index "players", ["name"], :name => "index_players_on_name"
   add_index "players", ["nationality"], :name => "index_players_on_nationality"
-  add_index "players", ["overallRating"], :name => "index_players_on_overallRating"
+  add_index "players", ["overallrating"], :name => "index_players_on_overallRating"
   add_index "players", ["p01ClassicNo10"], :name => "index_players_on_p01ClassicNo10"
   add_index "players", ["p02AnchorMan"], :name => "index_players_on_p02AnchorMan"
   add_index "players", ["p03Trickster"], :name => "index_players_on_p03Trickster"
@@ -188,8 +188,8 @@ ActiveRecord::Schema.define(:version => 20120620000854) do
   add_index "players", ["p18TrackBack"], :name => "index_players_on_p18TrackBack"
   add_index "players", ["physicalRating"], :name => "index_players_on_physicalRating"
   add_index "players", ["placeKicking"], :name => "index_players_on_placeKicking"
+  add_index "players", ["position"], :name => "index_players_on_registeredPosition"
   add_index "players", ["rb"], :name => "index_players_on_rb"
-  add_index "players", ["registeredPosition"], :name => "index_players_on_registeredPosition"
   add_index "players", ["resistanceRating"], :name => "index_players_on_resistanceRating"
   add_index "players", ["response"], :name => "index_players_on_response"
   add_index "players", ["rmf"], :name => "index_players_on_rmf"
@@ -225,24 +225,28 @@ ActiveRecord::Schema.define(:version => 20120620000854) do
   add_index "players", ["weakFootFrequency"], :name => "index_players_on_weakFootFrequency"
 
   create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",                                                 :null => false
-    t.datetime "updated_at",                                                 :null => false
-    t.integer  "user_id"
-    t.integer  "money",      :default => 300000000
-    t.string   "emblem",     :default => "/assets/teams/default_emblem.png"
+    t.string    "name"
+    t.timestamp "created_at",                                                          :null => false
+    t.timestamp "updated_at",                                                          :null => false
+    t.integer   "user_id"
+    t.integer   "money",               :default => 300000000
+    t.string    "emblem_file_name"
+    t.string    "emblem_content_type"
+    t.integer   "emblem_file_size"
+    t.timestamp "emblem_updated_at"
+    t.string    "emblem",              :default => "/assets/teams/default_emblem.png"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "lastname"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin",           :default => false
-    t.boolean  "authorization",   :default => false
+    t.string    "name"
+    t.string    "email"
+    t.string    "lastname"
+    t.timestamp "created_at",                         :null => false
+    t.timestamp "updated_at",                         :null => false
+    t.string    "password_digest"
+    t.string    "remember_token"
+    t.boolean   "admin",           :default => false
+    t.boolean   "authorization",   :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -190,7 +190,9 @@ module PlayersHelper
     "\u00FC" => 'u', # ü
     "\u00FD" => 'y', # ý
     "\u00FE" => 'p', # þ
-    "\u00FF" => 'y'  # ÿ
+    "\u00FF" => 'y',  # ÿ
+    
+    "\u017D" => 'z'  # Ž
   }
   def convert_to_common_chars str
       s=""
