@@ -2,7 +2,7 @@ namespace :db do
   desc "Entrega premios"
   task give_prizes: :environment do
       AyB=Team.find(3)
-      Ayb.money+=13280000
+      AyB.money+=13280000
       AyB.save   
       CSP=Team.find(4)
       CSP.money+=7570000
