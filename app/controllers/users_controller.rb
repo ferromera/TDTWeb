@@ -40,9 +40,12 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
   def destroy
-    User.find(params[:id]).destroy
+    @user=User.find(params[:id]).name
+    name=@user.name
+    lastname=@user.lastname
+    @user.destroy
     flash[:success] = "User destroyed."
-    News.create(content:"#{@user.name} #{@user.lastname} ya no es parte de Torneo Dream Team.")
+    News.create(content:"#{name} #{lastname} ya no es parte de Torneo Dream Team.")
     redirect_to users_path
   end
    
