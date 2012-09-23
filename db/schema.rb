@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624213333) do
+ActiveRecord::Schema.define(:version => 20120923022218) do
 
   create_table "bids", :force => true do |t|
-    t.integer   "bidder_id"
-    t.integer   "offered_id"
-    t.integer   "money"
-    t.integer   "player_id"
-    t.string    "description"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
+    t.integer  "bidder_id"
+    t.integer  "offered_id"
+    t.integer  "money"
+    t.integer  "player_id"
+    t.string   "description"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "hasBeenRead", :default => false
   end
 
   add_index "bids", ["bidder_id"], :name => "index_bids_on_bidder_id"
@@ -135,6 +136,18 @@ ActiveRecord::Schema.define(:version => 20120624213333) do
     t.integer  "team_id"
     t.integer  "height"
     t.integer  "weight"
+    t.boolean  "s15KnuckleShot"
+    t.boolean  "s16JumpingVolley"
+    t.boolean  "s17ScissorKick"
+    t.boolean  "s18HeelFlick"
+    t.boolean  "s19WeightedPass"
+    t.boolean  "s20DoubleTouch"
+    t.boolean  "s21RunAround"
+    t.boolean  "s22Sombrero"
+    t.boolean  "s23180Drag"
+    t.boolean  "s24LungingTackle"
+    t.boolean  "s25DivingHeader"
+    t.boolean  "s26GKLongThrow"
   end
 
   add_index "players", ["age"], :name => "index_players_on_age"
@@ -235,18 +248,19 @@ ActiveRecord::Schema.define(:version => 20120624213333) do
     t.integer   "emblem_file_size"
     t.timestamp "emblem_updated_at"
     t.string    "emblem",              :default => "/assets/teams/default_emblem.png"
+    t.boolean   "unreadNews",          :default => false
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "email"
-    t.string    "lastname"
-    t.timestamp "created_at",                         :null => false
-    t.timestamp "updated_at",                         :null => false
-    t.string    "password_digest"
-    t.string    "remember_token"
-    t.boolean   "admin",           :default => false
-    t.boolean   "authorization",   :default => false
+    t.string   "name"
+    t.string   "email"
+    t.string   "lastname"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin",           :default => false
+    t.boolean  "authorization",   :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

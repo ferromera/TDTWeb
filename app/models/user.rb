@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   def feed
     Micropost.where("user_id = ?", id)
   end
+  
   private
     
     def create_remember_token

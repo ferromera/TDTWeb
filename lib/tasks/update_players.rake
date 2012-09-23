@@ -8,7 +8,7 @@ namespace :db do
 
   task update_players: :environment do
     updated= Hash.new
-    file = File.open("players4_0.csv", "r:utf-8")
+    file = File.open("players2013_1_0Final.csv", "r:utf-8")
     csv = CSV.parse(file)
     i=1
     csv.each do |row|
@@ -87,26 +87,38 @@ namespace :db do
       player.s12ScissorsSkills= to_boolean row[66]
       player.s13StepOnSkills= to_boolean row[67]
       player.s14SideSteppingSkills= to_boolean row[68]
-      player.p01ClassicNo10= to_boolean row[69]
-      player.p02AnchorMan= to_boolean row[70]
-      player.p03Trickster= to_boolean row[71]
-      player.p04DartingRun= to_boolean row[72]
-      player.p05MazingRun= to_boolean row[73]
-      player.p06PinpointPass= to_boolean row[74]
-      player.p07EarlyCross= to_boolean row[75]
-      player.p08BoxToBox= to_boolean row[76]
-      player.p09IncisiveRun= to_boolean row[77]
-      player.p10LongRanger= to_boolean row[78]
-      player.p11Enforcer= to_boolean row[79]
-      player.p12GoalPoacher= to_boolean row[80]
-      player.p13DummyRunner= to_boolean row[81]
-      player.p14FreeRoaming= to_boolean row[82]
-      player.p15TailsMan= to_boolean row[83]
-      player.p16FoxInTheBox= to_boolean row[84]
-      player.p17OffensiveSideback= to_boolean row[85]
-      player.p18TrackBack= to_boolean row[86]
-      player.height=row[87]
-      player.weight=row[88]
+      player.s15KnuckleShot= to_boolean row[69]
+      player.s16JumpingVolley= to_boolean row[70]
+      player.s17ScissorKick= to_boolean row[71]
+      player.s18HeelFlick= to_boolean row[72]
+      player.s19WeightedPass= to_boolean row[73]
+      player.s20DoubleTouch= to_boolean row[74]
+      player.s21RunAround= to_boolean row[75]
+      player.s22Sombrero= to_boolean row[76]
+      player.s23180Drag= to_boolean row[77]
+      player.s24LungingTackle= to_boolean row[78]
+      player.s25DivingHeader= to_boolean row[79]
+      player.s26GKLongThrow= to_boolean row[80]  
+      player.p01ClassicNo10= to_boolean row[81]
+      player.p02AnchorMan= to_boolean row[82]
+      player.p03Trickster= to_boolean row[83]
+      player.p04DartingRun= to_boolean row[84]
+      player.p05MazingRun= to_boolean row[85]
+      player.p06PinpointPass= to_boolean row[86]
+      player.p07EarlyCross= to_boolean row[87]
+      player.p08BoxToBox= to_boolean row[88]
+      player.p09IncisiveRun= to_boolean row[89]
+      player.p10LongRanger= to_boolean row[90]
+      player.p11Enforcer= to_boolean row[91]
+      player.p12GoalPoacher= to_boolean row[92]
+      player.p13DummyRunner= to_boolean row[93]
+      player.p14FreeRoaming= to_boolean row[94]
+      player.p15TailsMan= to_boolean row[95]
+      player.p16FoxInTheBox= to_boolean row[96]
+      player.p17OffensiveSideback= to_boolean row[97]
+      player.p18TrackBack= to_boolean row[98]
+      player.height=row[99]
+      player.weight=row[100]
       
       i=i+1
       player.save

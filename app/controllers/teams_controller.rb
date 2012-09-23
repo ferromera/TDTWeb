@@ -47,6 +47,7 @@ class TeamsController < ApplicationController
   end
   def negotiations
     @team = Team.find(params[:id])
+    @team.readBids
   end
   
   private

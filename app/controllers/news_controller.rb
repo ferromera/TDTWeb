@@ -5,6 +5,8 @@ class NewsController < ApplicationController
 
   def index
     @news = News.paginate(page: params[:page], order: "created_at DESC")
+    current_user.team.unreadNews=false
+    current_user.team.save
   end
   
 end
