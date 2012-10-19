@@ -20,7 +20,7 @@ namespace :db do
       STB.money+=18670000+27250000
       STB.save  
       SPF=Team.find(9)
-      SPF.money+=-2810000
+      SPF.money+=2810000
       SPF.save  
       BDG=Team.find(10)
       BDG.money+=39940000
