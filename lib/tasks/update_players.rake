@@ -8,7 +8,7 @@ namespace :db do
 
   task update_players: :environment do
     updated= Hash.new
-    file = File.open("players2013_2.5.csv", "r:utf-8")
+    file = File.open("players2013_3_1.csv", "r:utf-8")
     csv = CSV.parse(file)
     i=1
     csv.each do |row|
