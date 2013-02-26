@@ -31,6 +31,7 @@ class BidsController < ApplicationController
        flash[:error]="#{@bid.bidder.name} no tiene presupuesto para realizar la compra."
     else
       @bid.player.team=@bid.bidder
+      @bid.player.club=@bid.bidder.name
       @bid.bidder.money-=@bid.money
       @bid.offered.money+=@bid.money
       if @bid.player.save and @bid.bidder.save and @bid.offered.save and @bid.delete
