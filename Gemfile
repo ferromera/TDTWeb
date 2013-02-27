@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
-gem 'bootstrap-sass', '2.0'
+gem 'rails', '3.2.12'
+gem 'bootstrap-sass', '2.3'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
@@ -20,7 +20,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '>3.2.0'
-  gem 'coffee-rails', '3.1.8'
+  gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.0'
 end
 
