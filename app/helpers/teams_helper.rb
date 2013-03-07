@@ -10,6 +10,7 @@ module TeamsHelper
       when team.name.downcase == "sportivo fiesta" then "/assets/teams/SF.png"
       when team.name.downcase == "uspallata f.b." then "/assets/teams/US.png"
       when team.name.downcase == "antigua y barbuda" then "/assets/teams/AB.png"
+      when team.name.downcase == "green machine" then "/assets/teams/GM.png"
       end
   end
 end
