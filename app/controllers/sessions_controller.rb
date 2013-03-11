@@ -11,7 +11,7 @@ def create
       # flash[:error] = 'No puede iniciar sesión porque su cuenta está en proceso de autorización.'
       # redirect_to root_path
       #else 
-       redirect_to root_path
+       redirect_to '/help'
        # redirect_back_or user
       #end
       
