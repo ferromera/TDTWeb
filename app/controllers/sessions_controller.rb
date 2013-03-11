@@ -6,14 +6,13 @@ def create
     
     
     if user && user.authenticate(params[:session][:password])
-     # if !
-         sign_in user
-      # flash[:error] = 'No puede iniciar sesión porque su cuenta está en proceso de autorización.'
-      # redirect_to root_path
-      #else 
-       redirect_to '/help'
-       # redirect_back_or user
-      #end
+      if !sign_in user
+       flash[:error] = 'No puede iniciar sesión porque su cuenta está en proceso de autorización.'
+       redirect_to root_path
+      else 
+       redirect_to root_path
+      
+      end
       
     else
       flash.now[:error] = 'Combinación correo electrónico / contraseña incorrecta'
