@@ -10,7 +10,11 @@
              <li><%= link_to "Usuarios", users_path%></li>
              <li><%= link_to "Jugadores", players_path %></li>
              <li><%= link_to "Equipos", teams_path %></li>
-             <li><%= link_to "Noticias", news_index_path	%></li>
+             <li><li><%= if !current_user.team.nil? and current_user.team.hasUnreadNews then
+              			 link_to "Noticias", news_index_path,:id => "RedColorMenu" 
+             			else
+             			link_to "Noticias", news_index_path
+             	 end %></li></li>
              <% unless current_user.team.nil? %>
              	<li id="fat-menu" class="dropdown">
              	<a <% if current_user.team.hasNewBids  %>
