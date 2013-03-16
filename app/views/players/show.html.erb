@@ -7,7 +7,7 @@
 			</form> 
 		<% elsif @player.team == current_user.team -%>
 			<form action=<%= "#{@player.id}/sell"%>  method="post">
-				<input type="submit" value="Vender" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%= getSellingPrice @player.overallrating%>M?">
+				<input type="submit" value="Vender por $<%= getSellingPrice @player.overallrating%>M" class="btn btn-small btn-primary" data-confirm="¿Vender por $<%= getSellingPrice @player.overallrating%>M?">
 			</form> 
 		<% else -%>
 			<form action="/bids"  method="post" id:"bid_form">
