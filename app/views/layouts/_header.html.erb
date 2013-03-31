@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "TORNEO DREAM TEAM", root_path, id: "logo" %>
+      <%= link_to "TDT WEB", root_path, id: "logo" %>
       <nav>
         <ul class="  nav pull-right">
         	
@@ -15,6 +15,19 @@
              			else
              			link_to "Noticias", news_index_path
              	 end %></li></li>
+             	 
+             <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Torneos<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              	<% tournament=Tournament.all%>
+              	<% tournament.each do |t|%>
+                	<li><%= link_to t.name, t %></li>
+                <%end%>
+              </ul>
+            </li>	 
+             	 
              <% unless current_user.team.nil? %>
              	<li id="fat-menu" class="dropdown">
              	<a <% if current_user.team.hasNewBids  %>
