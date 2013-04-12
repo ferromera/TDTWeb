@@ -14,4 +14,12 @@ module TeamsHelper
       else "/assets/teams/default_emblem.png"
       end
   end
+  def calcularValor team
+    players=team.players
+    valor=0
+    players.each do |p|
+      valor=valor+getPrice p.overallrating
+    end
+    valor
+  end
 end
