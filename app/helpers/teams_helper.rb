@@ -22,6 +22,6 @@ module TeamsHelper
     players.each do |p|
       valor = valor + (((p.overallrating/10.0)**8)/1E6).round(2)
     end
-    valor
+    valor.round(2)
   end
 end
