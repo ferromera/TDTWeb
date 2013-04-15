@@ -8,7 +8,7 @@ namespace :db do
 
   task update_players: :environment do
     updated= Hash.new
-    file = File.open("players2013_3_1.csv", "r:utf-8")
+    file = File.open("players2013_3_4.csv", "r:utf-8")
     csv = CSV.parse(file)
     i=1
     csv.each do |row|
@@ -19,7 +19,7 @@ namespace :db do
       player.pesPlayerId=row[0]
       player.name=row[1]
       player.nationality=row[2]
-      if( player.team_id==nil ) then
+      if( player.team==nil ) then
         player.club=row[3]
       end
       player.position=row[4]
@@ -121,7 +121,11 @@ namespace :db do
       player.weight=row[100]
       
       i=i+1
+      
       player.save
+      if player.overallrating <= 65 and player.team==nil then
+          p.delete
+      end
       updated[player.pesPlayerId]=true
       puts "procesados #{i}"
     end
