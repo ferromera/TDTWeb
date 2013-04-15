@@ -124,7 +124,7 @@ namespace :db do
       
       player.save
       if player.overallrating <= 65 and player.team==nil then
-          p.delete
+          player.delete
       end
       updated[player.pesPlayerId]=true
       puts "procesados #{i}"
