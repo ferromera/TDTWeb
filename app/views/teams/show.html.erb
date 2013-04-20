@@ -7,7 +7,7 @@
       </h1>
       <p>Presupuesto: $<%=  '%.4g' % (@team.money/1000000.0) %> Millones</p>
       <p>Valor del equipo: $<%=  calcularValor(@team)%> M</p>
-      <p>Valoración Promedio: <%=  calcularPrimedio(@team)%></p>
+      <p>Valoración Promedio (Top 11): <%=  calcularPromedio(@team)%> ( <%=  calcularTop11(@team)%> )</p>
       <p>Torneos Ganados: <%=  calcularTorneos(@team)%></p>
       
     </section>
