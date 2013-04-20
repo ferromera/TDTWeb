@@ -25,4 +25,27 @@ module TeamsHelper
     end
     valor.round(2)
   end
+  
+  def calcularPrimedio team
+    players=team.players
+    promedio=0
+    i=0
+    players.each do |p|
+      promedio = promedio + p.overallrating
+      i=i+1
+    end
+    (promedio/i).round(2)
+  end
+  
+  def calcularTorneos team
+      name=team.name
+      tournaments=Tournament.all
+      torneos=0
+      tournaments.each do |t|
+        if t.winner.downcase ==name.downcase
+          torneos=torneos+1
+        end
+    end
+    torneos
+  end
 end
