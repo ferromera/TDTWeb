@@ -28,7 +28,7 @@ module TeamsHelper
   
   def calcularPrimedio team
     players=team.players
-    promedio=0
+    promedio=0.0
     i=0
     players.each do |p|
       promedio = promedio + p.overallrating
