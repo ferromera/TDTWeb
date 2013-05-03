@@ -13,6 +13,7 @@ module TeamsHelper
       when team.name.downcase == "antigua y barbuda" then "/assets/teams/AB.png"
       when team.name.downcase == "green machine" then "/assets/teams/GM.png"
       when team.name.downcase == "defensores de ararat" then "/assets/teams/DE.png"
+      when team.name.downcase == "colorado 36" then "/assets/teams/CO.png"
       else "/assets/teams/default_emblem.png"
       end
   end
@@ -56,4 +57,5 @@ module TeamsHelper
     end
     (promedio/11.0).round(2)
   end
+  
 end
