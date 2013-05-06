@@ -4,11 +4,11 @@ namespace :db do
   desc "Carga los datos de un torneo"
   
   task load_tournament: :environment do
-    for i in 13 do
-      if i==8 
-        next
-      end
-      file = File.open("TDT#{i}_posiciones.csv", "r:utf-8")
+   # for i in 13 do
+     # if i==8 
+     #   next
+     # end
+      file = File.open("TDT13_posiciones.csv", "r:utf-8")
       csv = CSV.parse(file)
       tournament=Tournament.create
       first=true
@@ -36,6 +36,6 @@ namespace :db do
         end
       end
       tournament.save
-    end
+   # end
   end
 end
