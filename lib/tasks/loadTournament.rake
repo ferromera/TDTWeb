@@ -4,7 +4,7 @@ namespace :db do
   desc "Carga los datos de un torneo"
   
   task load_tournament: :environment do
-    for i in 1..12 do
+    for i in 13 do
       if i==8 
         next
       end
