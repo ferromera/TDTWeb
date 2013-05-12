@@ -10,6 +10,7 @@ TDTWeb::Application.routes.draw do
   resources :bids, only: [:create, :destroy]
   resources :news, only: [:index]
   resources :tournament, only: [ :show  ]
+  resources :strikers, only: [ :index  ]
   
   root to: "static_pages#home"
   

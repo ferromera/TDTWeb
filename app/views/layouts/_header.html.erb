@@ -10,23 +10,31 @@
              <li><%= link_to "Usuarios", users_path%></li>
              <li><%= link_to "Jugadores", players_path %></li>
              <li><%= link_to "Equipos", teams_path %></li>
+              	 
              <li><li><%= if !current_user.team.nil? and current_user.team.hasUnreadNews then
               			 link_to "Noticias", news_index_path,:id => "RedColorMenu" 
              			else
              			link_to "Noticias", news_index_path
              	 end %></li></li>
              	 
-             <li id="fat-menu" class="dropdown">
+     		<li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Torneos<b class="caret"></b>
+                Estadísticas<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-              	<% tournament=Tournament.all%>
-              	<% (tournament.sort { |x, y| x.created_at <=> y.created_at }).each do |t|%>
-                	<li><%= link_to t.name, t %></li>
-                <%end%>
+              	
+              	<li><%= link_to "Goleadores", strikers_path%></li>
+              	
+              	<li id="fat-menu" class="dropdown-submenu"><a href="#"> Torneos </a>
+              		<ul id="TournamentSubmenu" class="dropdown-menu">
+              			<% tournament=Tournament.all%>
+              			<% (tournament.sort { |x, y| x.created_at <=> y.created_at }).each do |t|%>
+                			<li><%= link_to t.name, t %></li>
+               	 		<%end%>
+              		</ul>
+            	</li>	     	
               </ul>
-            </li>	 
+            </li>	
              	 
              <% unless current_user.team.nil? %>
              	<li id="fat-menu" class="dropdown">
