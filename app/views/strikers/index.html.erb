@@ -4,7 +4,7 @@
   <tr><th>Jugador</th><th>Equipo</th><th>Goles</th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th><th>VII</th><th>X</th><th>XI</th><th>XII</th><th>XIII</th></tr>
   </thead>
   <tbody>
-  <% @strikers.each do |s| %>
+  <% (@strikers.sort { |x, y| y.goals <=> x.goals }).each do |s| %>
   <tr>
   	<td><%= s.name %></td>
   	<td><%= s.team %></td>
