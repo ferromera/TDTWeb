@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512203833) do
+ActiveRecord::Schema.define(:version => 20130514180458) do
 
   create_table "bids", :force => true do |t|
     t.integer   "bidder_id"
@@ -264,7 +264,6 @@ ActiveRecord::Schema.define(:version => 20130512203833) do
     t.integer  "V"
     t.integer  "VI"
     t.integer  "VII"
-    t.integer  "VIII"
     t.integer  "X"
     t.integer  "XI"
     t.integer  "XII"

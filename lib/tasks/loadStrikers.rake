@@ -20,11 +20,10 @@ namespace :db do
           striker.V=Integer(row[7])
           striker.VI=Integer(row[8])
           striker.VII=Integer(row[9])
-          striker.VIII=Integer(row[10])
-          striker.X=Integer(row[11])
-          striker.XI=Integer(row[12])
-          striker.XII=Integer(row[13])
-          striker.XIII=Integer(row[14])
+          striker.X=Integer(row[10])
+          striker.XI=Integer(row[11])
+          striker.XII=Integer(row[12])
+          striker.XIII=Integer(row[13])
         
           striker.save
         end
