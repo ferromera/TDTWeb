@@ -28,6 +28,8 @@ TDTWeb::Application.routes.draw do
   match '/teams/:id/negotiations',  to: 'teams#negotiations'
   match '/bids/:id/acept',  to: 'bids#acept'
   match '/clashes', to: 'clashes#index'
+  match 'teams/:id/strikers', to: 'teams#strikers'
+  match 'strikers/byPlayer', to: 'strikers#byplayer'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

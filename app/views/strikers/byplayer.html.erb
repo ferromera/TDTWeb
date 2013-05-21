@@ -1,8 +1,7 @@
-<h1>Goleadores</h1>
-
+<h1>Goleadores por Jugador</h1>
 <div class="bs-docs-example">
             <ul class="nav nav-pills"> 
-            	<li class="active"><%= link_to "Por Jugador", '/strikers/byPlayer'%></li>
+            	<li class="active"><%= link_to "Por Jugador y Equipo", '/strikers'%></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">Por Equipo <b class="caret"></b></a>
                 <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
@@ -20,13 +19,13 @@
 
 <table id="tablaStrikers" class="sortable">
   <thead>
-  <tr><th>Jugador</th><th>Equipo</th><th>Goles</th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th><th>VII</th><th>X</th><th>XI</th><th>XII</th><th>XIII</th></tr>
+  <tr><th>Jugador</th><th>Goles</th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th><th>VII</th><th>X</th><th>XI</th><th>XII</th><th>XIII</th></tr>
   </thead>
   <tbody>
-  <% (@strikers.sort { |x, y| y.goals <=> x.goals }).each do |s| %>
+  <% strikersByPlayer= getStrikersByPlayer%>
+  <% (strikersByPlayer.sort { |x, y| y.goals <=> x.goals }).each do |s| %>
   <tr>
   	<td><%= s.name %></td>
-  	<td><%= s.team %></td>
   	<td><%= s.goals %></td>
   	<td><%= s.I %></td>
   	<td><%= s.II %></td>

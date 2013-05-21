@@ -305,5 +305,19 @@ aside {
     
   }
 }
-
+.teamButtons{
+  form.button_to{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    div{
+      input{
+        padding: 5px;
+        margin-left: 0;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
 

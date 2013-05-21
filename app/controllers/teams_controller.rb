@@ -49,6 +49,10 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @team.readBids
   end
+  def strikers
+    @team = Team.find(params[:id])
+    @strikers= Striker.where(:team => @team.name)
+  end
   
   private
   def correct_user
