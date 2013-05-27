@@ -1,7 +1,7 @@
 #coding: utf-8
 module ClashesHelper
   def getPG (team1 ,team2)
-    clashes=Clash.all
+    clashes=@clashes
     pg=0
     clashes.each do |c|
       if c.team1.downcase==team1.downcase and c.team2.downcase==team2.downcase then
@@ -18,7 +18,7 @@ module ClashesHelper
     pg
   end
   def getPE (team1 ,team2)
-    clashes=Clash.all
+    clashes=@clashes
     pe=0
     clashes.each do |c|
       if c.team1.downcase==team1.downcase and c.team2.downcase==team2.downcase then
@@ -35,7 +35,7 @@ module ClashesHelper
     pe
    end
     def getPP (team1 ,team2)
-    clashes=Clash.all
+    clashes=@clashes
     pp=0
     clashes.each do |c|
       if c.team1.downcase==team1.downcase and c.team2.downcase==team2.downcase then
@@ -53,7 +53,7 @@ module ClashesHelper
   end
   
   def getPJof team
-    clashes=Clash.all
+    clashes=@clashes
     pj=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase or c.team2.downcase==team.downcase then
@@ -63,7 +63,7 @@ module ClashesHelper
     pj
   end
   def getPGof team
-    clashes=Clash.all
+    clashes=@clashes
     pg=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase then
@@ -80,7 +80,7 @@ module ClashesHelper
     pg
   end
   def getPEof team
-    clashes=Clash.all
+    clashes=@clashes
     pe=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase then
@@ -97,7 +97,7 @@ module ClashesHelper
     pe
   end
   def getPPof team
-    clashes=Clash.all
+    clashes=@clashes
     pp=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase then
@@ -114,7 +114,7 @@ module ClashesHelper
     pp
   end
   def getGFof team
-    clashes=Clash.all
+    clashes=@clashes
     gf=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase then
@@ -126,7 +126,7 @@ module ClashesHelper
     gf
   end
   def getGCof team
-    clashes=Clash.all
+    clashes=@clashes
     gc=0
     clashes.each do |c|
       if c.team1.downcase==team.downcase then

@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   end
   def show
     @team = Team.find(params[:id])
+    @clashes=Clash.all
   end
   def edit
     @team = Team.find(params[:id])
