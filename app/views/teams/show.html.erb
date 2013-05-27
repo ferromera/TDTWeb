@@ -15,5 +15,25 @@
     <%= button_to "Plantilla", {:action => "plantilla"}, :class => "botonSinEspacios btn btn-small btn-primary" %>
     <%= button_to "Goleadores", {:action => "strikers"}, :class => "botonSinEspacios btn btn-small btn-primary" %>
     </div>
+    <h4> Estadísticas : </h4>
+    <table id="tablaPlantilla" class="sortable">
+  <thead>
+  <tr><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>PROMEDIO</th></tr>
+  </thead>
+  <tbody>
+
+  <tr>
+  	<td><%= getPJof @team.name %></td>
+  	<td><%= getPGof @team.name %></td>
+  	<td><%= getPEof @team.name %></td>
+  	<td><%= getPPof @team.name %></td>
+  	<td><%= getGFof @team.name %></td>
+  	<td><%= getGCof @team.name %></td>
+  	<td><%= (getGFof @team.name) - (getGCof @team.name) %></td>
+  	<td><%=  ((3*(getPGof @team.name) + (getPEof @team.name))/Float(getPJof @team.name)).round(2) %></td>
+  </tr>
+
+  </tbody>
+</table>
   </aside>
 </div>
