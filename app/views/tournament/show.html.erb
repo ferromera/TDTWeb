@@ -25,3 +25,20 @@
   <% end %>
   </tbody>
 </table>
+
+<h2>Enfrentamientos</h2>
+<table id="tablaPlantilla" class="sortable">
+  <thead>
+  <tr><th>LOCAL</th><th> </th><th> </th><th>VISITANTE</th></tr>
+  </thead>
+  <tbody>
+  <% (getClashes @tournament).each do |c| %>
+  <tr>
+  	<td><%= c.team1 %></td>
+  	<td><%= c.goals1 %></td>
+  	<td><%= c.goals2 %></td>
+  	<td><%= c.team2 %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

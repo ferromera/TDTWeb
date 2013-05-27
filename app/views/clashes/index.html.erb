@@ -1,1 +1,619 @@
-<%= image_tag "/assets/Enfrentamientos.png" %>
+<%= provide(:title, 'Enfrentamientos') %>
+<h1>Enfrentamientos</h1>
+
+<table id="tablaEnfrentamientosTop" class="sortable">
+  <thead>
+  <tr><th>EQUIPO</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>PROMEDIO</th></tr>
+  </thead>
+  <tbody>
+  <% Team.all.each do |t| %>
+  <tr>
+  	<td><%= t.name %></td>
+  	<td><%= getPJof t.name %></td>
+  	<td><%= getPGof t.name %></td>
+  	<td><%= getPEof t.name %></td>
+  	<td><%= getPPof t.name %></td>
+  	<td><%= getGFof t.name %></td>
+  	<td><%= getGCof t.name %></td>
+  	<td><%= (getGFof t.name) - (getGCof t.name) %></td>
+  	<td><%=  ((3*(getPGof t.name) + (getPEof t.name))/Float(getPJof t.name)).round(2) %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<table class="rich-table sortable" id="tablaEnfrentamientos"  border="0" cellpadding="0" cellspacing="0" width="700">
+	<colgroup span="5"></colgroup>
+	<thead class="rich-table-thead">
+		<tr class="rich-table-header  ">
+			<th class="rich-table-headercell "  rowspan="2">Equipo</th>
+			<th class="rich-table-headercell "  colspan="3">AYB</th>
+			<th class="rich-table-headercell "  colspan="3">BAZ</th>
+			<th class="rich-table-headercell "  colspan="3">COL</th>
+			<th class="rich-table-headercell "  colspan="3">CSP</th>
+			<th class="rich-table-headercell "  colspan="3">DEF</th>
+			<th class="rich-table-headercell "  colspan="3">GMC</th>
+			<th class="rich-table-headercell "  colspan="3">HON</th>
+			<th class="rich-table-headercell "  colspan="3">STB</th>
+			<th class="rich-table-headercell "  colspan="3">SPF</th>
+			<th class="rich-table-headercell "  colspan="3">USP</th>
+			<th class="rich-table-headercell "  colspan="3">WIS</th>
+			
+		</tr>
+		<tr class="rich-table-header-continue  ">
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+			<th class="rich-table-headercell " >PG</th>
+			<th class="rich-table-headercell " >PE</th>
+			<th class="rich-table-headercell " >PP</th>
+		</tr>
+	</thead>
+	<tbody>
+  <tr>
+  	<td style="color:white;">AYB</td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Antigua y Barbuda" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Antigua y Barbuda" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Antigua y Barbuda" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">BAZ</td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Antigua y Barbuda"  %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Antigua y Barbuda" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Bazinga F.C." ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Bazinga F.C." ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Bazinga F.C." ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">COL</td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Bazinga F.C." %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Colorado 36" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Colorado 36" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Colorado 36" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">CSP</td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Colorado 36" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "C. S. Peronista" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "C. S. Peronista" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "C. S. Peronista" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">DEF</td>
+  	
+  	
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat","Antigua y Barbuda"  %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat","Antigua y Barbuda"  %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"C. S. Peronista" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Defensores de Ararat" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Defensores de Ararat" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Defensores de Ararat" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">GMC</td>
+  	
+  	
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine","Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Defensores de Ararat" %></td>
+  	
+	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Green Machine" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Green Machine" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Green Machine" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">HON</td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights", "Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights", "Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights", "Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Green Machine" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Honolulu Lights" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Honolulu Lights" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Honolulu Lights" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">STB</td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian", "Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian", "Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian", "Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Honolulu Lights" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Saint Bastian" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Saint Bastian" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Saint Bastian" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">SPF</td>
+  	
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Saint Bastian" %></td>
+
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Uspallata F.B." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Sportivo Fiesta" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Sportivo Fiesta" ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Sportivo Fiesta" ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">USP</td>
+ 
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B.","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B.","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B.","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Sportivo Fiesta" %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Uspallata F.B." ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Uspallata F.B." ,"Wisconsin Badgers" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Uspallata F.B." ,"Wisconsin Badgers" %></td>
+  
+  </tr>
+  <tr>
+  	<td style="color:white;">WIS</td>
+  
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers","Antigua y Barbuda"  %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers","Antigua y Barbuda" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers","Antigua y Barbuda" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Bazinga F.C." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Bazinga F.C." %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Colorado 36" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Colorado 36" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Colorado 36" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"C. S. Peronista" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"C. S. Peronista" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Defensores de Ararat" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Defensores de Ararat" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Green Machine" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Green Machine" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Green Machine" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Honolulu Lights" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Honolulu Lights" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Saint Bastian" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Saint Bastian" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Sportivo Fiesta" %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Sportivo Fiesta" %></td>
+  	
+  	<td style="background-color:#AAFF77;"><%= getPG "Wisconsin Badgers" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FFFFAA;"><%= getPE "Wisconsin Badgers" ,"Uspallata F.B." %></td>
+  	<td style="background-color:#FF7777;"><%= getPP "Wisconsin Badgers" ,"Uspallata F.B." %></td>
+  	
+  	<td> </td>
+  	<td> </td>
+  	<td> </td>
+  
+  </tr>
+  </tbody>
+	</table>

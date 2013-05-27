@@ -1,0 +1,58 @@
+
+$darkwhite: #e7e7e7;
+
+#tablaEnfrentamientosTop{
+  margin-top: 10px;
+  margin-left:auto; 
+  margin-right:auto;
+  border: 3px solid grey;
+  background-color: black;
+  color:  $darkwhite;
+    th{
+      padding: 7px;
+      border: 2px solid grey;
+      text-align: center;
+      font-size: 15px;
+      
+      
+    }
+    
+    td{
+      padding: 5px;
+      text-align: center;
+      font-size: 15px;
+      border: 2px solid grey;
+      a{
+        color:  $darkwhite;
+      }
+    }
+}
+
+#tablaEnfrentamientos{
+  margin-top: 10px;
+  margin-left:auto; 
+  margin-right:auto;
+  border: 3px solid grey;
+  background-color: black;
+  color:  $darkwhite;
+    th{
+      padding: 5px;
+      border: 2px solid grey;
+      text-align: center;
+      font-size: 10px;
+      
+      
+    }
+    
+    td{
+      color:black;
+      padding: 3px;
+      text-align: center;
+      font-size: 9px;
+      border: 2px solid grey;
+      a{
+        color:  $darkwhite;
+      }
+    }
+    
+}

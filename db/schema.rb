@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514180458) do
+ActiveRecord::Schema.define(:version => 20130524001602) do
 
   create_table "bids", :force => true do |t|
     t.integer   "bidder_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20130514180458) do
   add_index "bids", ["bidder_id"], :name => "index_bids_on_bidder_id"
   add_index "bids", ["offered_id"], :name => "index_bids_on_offered_id"
   add_index "bids", ["player_id"], :name => "index_bids_on_player_id"
+
+  create_table "clashes", :force => true do |t|
+    t.string   "team1"
+    t.string   "team2"
+    t.integer  "goals1"
+    t.integer  "goals2"
+    t.string   "tournament"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string    "content"
