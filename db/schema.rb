@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524001602) do
+ActiveRecord::Schema.define(:version => 20130601195326) do
 
   create_table "bids", :force => true do |t|
     t.integer   "bidder_id"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20130524001602) do
     t.boolean   "s24LungingTackle"
     t.boolean   "s25DivingHeader"
     t.boolean   "s26GKLongThrow"
+    t.integer   "dorsal"
   end
 
   add_index "players", ["age"], :name => "index_players_on_age"

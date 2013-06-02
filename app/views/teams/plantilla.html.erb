@@ -2,7 +2,7 @@
 <h1><%=@team.name%>: Plantilla</h1>
 <table id="tablaPlantilla" class="sortable">
   <thead>
-  <tr><th>Pos</th><th>Nombre</th><th>Valoración</th><th>Edad</th><th>Altura</th><th>Valor</th></tr>
+  <tr><th>Pos</th><th>Nombre</th><th>Valoración</th><th>Edad</th><th>Altura</th><th>Valor</th><th>Dorsal</th></tr>
   </thead>
   <tbody>
   <% @team.players.each do |p| %>
@@ -11,7 +11,8 @@
   	<td color=<%=get100StatColor p.overallrating %>><%=p.overallrating%></td>
   	<td><%=p.age%></td>
   	<td><%=p.height%></td>
-  	<td sorttable_customkey=<%=getPrice p.overallrating%>>$<%=getPrice p.overallrating%>M</td></tr>
+  	<td sorttable_customkey=<%=getPrice p.overallrating%>>$<%=getPrice p.overallrating%>M</td>
+  	<td><%=p.dorsal%></td></tr>
   <% end %>
   </tbody>
 </table>

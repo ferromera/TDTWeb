@@ -2,7 +2,7 @@
 include TeamsHelper
 class TeamsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update,:dorsals,:updateDorsals]
   def new
     @team = Team.new
   end
@@ -53,6 +53,15 @@ class TeamsController < ApplicationController
   def strikers
     @team = Team.find(params[:id])
     @strikers= Striker.where(:team => @team.name)
+  end
+  def dorsals
+    @team = Team.find(params[:id])
+    @players= @team.players
+  end
+  def updateDorsals
+    @team = Team.find(params[:id])
+    setDorsals params
+    redirect_to "/teams/#{@team.id}/plantilla"
   end
   
   private

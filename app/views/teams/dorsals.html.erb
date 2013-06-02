@@ -1,0 +1,11 @@
+<%= provide(:title, 'Dorsales') %> 
+<h1><%=@team.name%>: Dorsales</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  	<%= form_tag(:controller => "teams", :action => "updateDorsals", :method => "post") %>
+      <%= render 'dorsalform' %>
+     <%= submit_tag "Guardar dorsales" %>
+ 
+  </div>
+</div>

@@ -1,0 +1,9 @@
+ <%= render partial: 'shared/error_messages', locals: { model: @team } %>
+ <% @players.each do |p| %>
+
+ 
+ <label><%= p.name %></label>
+ <%= select_tag p.id, (getDorsals @team ,p).html_safe%>
+
+
+ <%end%>

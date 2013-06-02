@@ -57,5 +57,24 @@ module TeamsHelper
     end
     (promedio/11.0).round(2)
   end
-  
+  def getDorsals team, player
+    result=""
+    (1..99).each do |i|
+        if(player.dorsal!= nil and player.dorsal==i)
+          result=result+"<option selected=\"selected\">#{i}</option>"
+      
+      else
+        result=result+"<option>#{i}</option>"
+      end
+    end
+    result
+  end
+  def setDorsals params
+    players=@team.players
+    players.each do |p|
+      
+        p.dorsal=params["#{p.id}"]
+        p.save
+    end
+  end
 end
