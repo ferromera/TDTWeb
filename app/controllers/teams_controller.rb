@@ -65,6 +65,7 @@ class TeamsController < ApplicationController
   end
   def alignment
     @team = Team.find(params[:id])
+    @players= @team.players.sort{|x,y| x.name<=>y.name}
   end
   def updateAlignment
     @team = Team.find(params[:id])
