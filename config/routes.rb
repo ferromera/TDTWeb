@@ -25,9 +25,13 @@ TDTWeb::Application.routes.draw do
   match '/players/:id/purchase',  to: 'players#purchase'
   match '/players/:id/sell',  to: 'players#sell'
   match '/teams/:id/plantilla',  to: 'teams#plantilla'
+  match '/teams/:id/alignment',  to: 'teams#alignment'
+  match '/teams/:id/updateAlignment',  to: 'teams#updateAlignment'
+  match '/teams/:id/resetAlignment',  to: 'teams#resetAlignment'
   match '/teams/:id/negotiations',  to: 'teams#negotiations'
   match '/teams/:id/dorsals',  to: 'teams#dorsals'
   match '/teams/:id/updateDorsals',  to: 'teams#updateDorsals'
+  
   match '/bids/:id/acept',  to: 'bids#acept'
   match '/clashes', to: 'clashes#index'
   match 'teams/:id/strikers', to: 'teams#strikers'

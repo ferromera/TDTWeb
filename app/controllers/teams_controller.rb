@@ -2,7 +2,7 @@
 include TeamsHelper
 class TeamsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :correct_user,   only: [:edit, :update,:dorsals,:updateDorsals]
+  before_filter :correct_user,   only: [:edit, :update,:dorsals,:updateDorsals,:updateAlignment,:resetAlignment]
   def new
     @team = Team.new
   end
@@ -63,7 +63,19 @@ class TeamsController < ApplicationController
     setDorsals params
     redirect_to "/teams/#{@team.id}/plantilla"
   end
-  
+  def alignment
+    @team = Team.find(params[:id])
+  end
+  def updateAlignment
+    @team = Team.find(params[:id])
+    setAlignmentPosition params
+    redirect_to "/teams/#{@team.id}/alignment"
+  end
+  def resetAlignment
+    @team = Team.find(params[:id])
+    resetAlignmentPosition
+    redirect_to "/teams/#{@team.id}/alignment"
+  end
   private
   def correct_user
       @user = Team.find(params[:id]).user
