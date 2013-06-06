@@ -1,5 +1,6 @@
 <%= provide(:title, 'Alineación') %> 
 <h1 style="margin-top:0;"><%=@team.name%>: Alineación</h1>
+<%= @players[0].x %>
 
 <div style="display:inline;">
 
@@ -19,7 +20,7 @@
 			<% (1..8).each do |r|%>
 			<tr> <% (1..3).each do |c|%>
 				<td style="padding: 10px;"> <%if i<size %>
-						<div id="dragPlayer" <% if current_user.team == @team%>class="drag"<%end%> name=<%=@players[i].id%> style=<%="display:inline;left:#{@players[i].x};top:#{@players[i].y};"%>  >
+						<div id="dragPlayer" <% if current_user.team == @team%>class="drag"<%end%> name=<%=@players[i].id%> style=<%="position:relative;display:inline;left:#{@players[i].x};top:#{@players[i].y};"%>  >
 							<% margin=@players[i].name.size*3%>
 							<%= image_tag (getShirt @team) ,{:style=>"pointer-events:none; margin-left:15px;", :size=>"30x30" } %>
 							</br>
