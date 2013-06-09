@@ -8,7 +8,7 @@ namespace :db do
      # if i==8 
      #   next
      # end
-      file = File.open("TDT13_posiciones.csv", "r:utf-8")
+      file = File.open("TDT14_posiciones.csv", "r:utf-8")
       csv = CSV.parse(file)
       tournament=Tournament.create
       first=true

@@ -24,6 +24,7 @@ namespace :db do
           striker.XI=Integer(row[11])
           striker.XII=Integer(row[12])
           striker.XIII=Integer(row[13])
+          striker.XIV=Integer(row[14])
         
           striker.save
         end
