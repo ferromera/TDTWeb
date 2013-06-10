@@ -10,6 +10,16 @@ class Bid < ActiveRecord::Base
     self[:hasBeenRead]=true
     save
   end
+  def readMade
+    if self[:refused]==true then
+      self[:readrefused]=true
+    end
+    save
+  end
+  def refuse
+    self[:refused]=true
+    self[:readrefuse]=false
+  end
   def hasNotBeenRead
     return (not self[:hasBeenRead])
   end

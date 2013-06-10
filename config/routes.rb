@@ -33,6 +33,7 @@ TDTWeb::Application.routes.draw do
   match '/teams/:id/updateDorsals',  to: 'teams#updateDorsals'
   
   match '/bids/:id/acept',  to: 'bids#acept'
+  match '/bids/:id/refuse',  to: 'bids#refuse'
   match '/clashes', to: 'clashes#index'
   match 'teams/:id/strikers', to: 'teams#strikers'
   match 'strikers/byPlayer', to: 'strikers#byplayer'

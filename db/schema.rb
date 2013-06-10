@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609193901) do
+ActiveRecord::Schema.define(:version => 20130610033251) do
 
   create_table "bids", :force => true do |t|
     t.integer   "bidder_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20130609193901) do
     t.timestamp "created_at",                     :null => false
     t.timestamp "updated_at",                     :null => false
     t.boolean   "hasBeenRead", :default => false
+    t.boolean   "refused",     :default => false
+    t.boolean   "readrefused", :default => false
   end
 
   add_index "bids", ["bidder_id"], :name => "index_bids_on_bidder_id"

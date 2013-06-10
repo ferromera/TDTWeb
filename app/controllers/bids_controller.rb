@@ -44,6 +44,12 @@ class BidsController < ApplicationController
       end
     end
   end
+  def refuse
+    @bid=Bid.find(params[:id])
+    @bid.refuse
+    @bid.save
+    redirect_to "/teams/#{current_user.team.id}/negotiations"
+  end
   def destroy
     @bid=Bid.find(params[:id])
     @bid.delete

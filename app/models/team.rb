@@ -13,11 +13,19 @@ class Team < ActiveRecord::Base
         return true
       end
     end
+    bids_made.each do |b|
+      if b.refused and b.readrefused==false
+        return true
+      end
+    end
     return false
   end
   def readBids
     bids_recieved.each do |b|
       b.read
+    end
+    bids_made.each do |b|
+      b.readMade
     end
     
   end
