@@ -96,7 +96,3 @@ function ExtractNumber(value)
 }
 
 // this is simply a shortcut for the eyes and fingers
-function $(id)
-{
-    return document.getElementById(id);
-}
