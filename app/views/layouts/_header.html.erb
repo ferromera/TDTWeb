@@ -3,7 +3,7 @@
     <div class="container">
       <%= link_to "TDT WEB", root_path, id: "logo" %>
       <nav>
-        <ul class="  nav pull-right">
+        <ul class=" nav pull-right headerNavLine" style="padding-bottom:0;margin-bottom:0;">
         	
           <li><%= link_to "Inicio",    root_path %></li>
           <% if signed_in? %>
@@ -79,9 +79,15 @@
             </li>
           
           <% end %>
+          
         </ul>
+        <ul class="  nav pull-right" style="padding:0;margin:0;">
+        	<div class="container" style="text-align:left;padding:0;margin:0;">
+			<p style="font-size:8px;padding:0;margin:0; ">Actualizado a PESEdit 2013 5.0</p>
+			</div>
+        </ul>	
       </nav>
+      
     </div>
   </div>
 </header>
-
