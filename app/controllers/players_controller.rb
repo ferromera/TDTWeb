@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
     @players = pos_filter @players ,params[:position] 
     @players = age_filter @players ,params[:agemin] ,params[:agemax]
     @players = rat_filter @players ,params[:ratmin] ,params[:ratmax]
-    @players = @players.paginate(:page => params[:page])
+    @players = @players.paginate(:page => params[:page],:per_page   => 500)
    
 
   end
