@@ -28,6 +28,7 @@ module StrikersHelper
         newStriker.XIII+=p.XIII
         newStriker.XIV+=p.XIV
         newStriker.XV+=p.XV
+        newStriker.XVI+=p.XVI
         
       end
     end
