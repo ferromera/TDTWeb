@@ -1,7 +1,10 @@
 <table class="PlayerContaint" >
 	<td class="PlayerButtons"> 
 	<% if !current_user.team.nil? -%>
-		<% if @player.team.nil? -%>
+	
+		<% if true -%>
+			<p style="width:100px">Transacciones suspendidas hasta el PES 2014.</p>
+		<% elsif @player.team.nil? -%>
 			<form action=<%= "#{@player.id}/purchase"%>  method="post">
 				<input type="submit" value="Comprar" class="btn btn-small btn-primary" data-confirm="¿Comprar por $<%= getPrice @player.overallrating%>M?">
 			</form> 

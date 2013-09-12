@@ -44,23 +44,25 @@ class PlayersController < ApplicationController
       redirect_to current_user
     else
       @player=Player.find(params[:id])
-      if @player.team != nil then
-        flash[:error] = "El jugador pertenece a otro equipo, realice una oferta."
-      else
-        if current_user.team.money < (getPrice (@player.overallrating))* 1E6
-           flash[:error] = "Presupuesto insuficiente."
-        else
-            @player.team=current_user.team;
-            @player.club=current_user.team.name;
-            current_user.team.money-= (getPrice @player.overallrating)* 1E6
-            if @player.save and current_user.team.save
-              flash[:success] = "La compra se realizó exitosamente."
-              News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallrating))}M.")
-            else
-              flash[:error] = "Error al realizar la compra."
-            end
-        end
-      end
+      flash[:error] = "La compra de jugadores está bloqueada hasta la actualización al PES 2014."
+      
+      #if @player.team != nil then
+      #  flash[:error] = "El jugador pertenece a otro equipo, realice una oferta."
+      #else
+      #  if current_user.team.money < (getPrice (@player.overallrating))* 1E6
+       #    flash[:error] = "Presupuesto insuficiente."
+       # else
+        #    @player.team=current_user.team;
+         #   @player.club=current_user.team.name;
+          #  current_user.team.money-= (getPrice @player.overallrating)* 1E6
+           # if @player.save and current_user.team.save
+            #  flash[:success] = "La compra se realizó exitosamente."
+             # News.create(content:"#{@player.team.name} ha comprado a #{@player.name} por $#{(getPrice (@player.overallrating))}M.")
+            #else
+             # flash[:error] = "Error al realizar la compra."
+            #end
+        #end
+      #end
     end
     redirect_to @player
   end
@@ -70,19 +72,20 @@ class PlayersController < ApplicationController
       redirect_to current_user
     else
       @player=Player.find(params[:id])
-      if current_user.team != @player.team 
-         flash[:error] = "Este jugador no es tuyo."
-      else
-          @player.team=nil
-          @player.club=""
-          current_user.team.money+= (getSellingPrice @player.overallrating)* 1E6
-        if @player.save and current_user.team.save
-          flash[:success] = "La venta se realizó exitosamente."
-          News.create(content:"#{current_user.team.name} ha vendido a #{@player.name} por $#{(getSellingPrice (@player.overallrating))}M.")
-        else
-          flash[:error] = "Error al realizar la venta."
-        end
-      end
+      flash[:error] = "La venta de jugadores está bloqueada hasta la actualización al PES 2014."
+      #if current_user.team != @player.team 
+      #   flash[:error] = "Este jugador no es tuyo."
+      #else
+      #    @player.team=nil
+      #    @player.club=""
+      #    current_user.team.money+= (getSellingPrice @player.overallrating)* 1E6
+      #  if @player.save and current_user.team.save
+       #   flash[:success] = "La venta se realizó exitosamente."
+       #   News.create(content:"#{current_user.team.name} ha vendido a #{@player.name} por $#{(getSellingPrice (@player.overallrating))}M.")
+      #  else
+       #   flash[:error] = "Error al realizar la venta."
+       # end
+     # end
     end
      redirect_to @player
   end
