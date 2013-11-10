@@ -35,6 +35,14 @@ $darkwhite: #e7e7e7;
       
       
     }
+    tbody{
+    tr:nth-child(even) {
+    background-color: #666666;
+}
+    tr:nth-child(odd) {
+    background-color: #505050;
+}
+}
     #NombrePlantilla{
          text-align: left;
       }

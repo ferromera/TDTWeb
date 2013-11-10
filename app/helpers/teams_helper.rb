@@ -28,6 +28,9 @@ module TeamsHelper
   end
   
   def calcularPromedio team
+    if team.players.empty?
+      0
+    else
     players=team.players
     promedio=0.0
     i=0
@@ -36,6 +39,7 @@ module TeamsHelper
       i=i+1
     end
     (promedio/i).round(2)
+    end
   end
   
   def calcularTorneos team
@@ -50,12 +54,16 @@ module TeamsHelper
     torneos
   end
   def calcularTop11 team
+    if team.players.size < 11
+      0
+    else
     players=team.players.sort{|a,b| b.overallrating <=> a.overallrating}
     promedio=0.0
     for i in 0..10 do
       promedio=promedio+players[i].overallrating
     end
     (promedio/11.0).round(2)
+    end
   end
   def getDorsals team, player
     result=""

@@ -17,7 +17,7 @@ margin-top:20px;
 
 
   .PlayerName{ 
-    font-size: 20px;
+    font-size: 30px;
    
   }
   
@@ -51,7 +51,7 @@ margin-top:20px;
     font-size: 13px;
   }
   .PlayerPrice{
-    font-size: 15px;
+    font-size: 22px;
   }
   .PlayerSecRatingName{
     font-size: 10px;
@@ -61,10 +61,52 @@ margin-top:20px;
     font-size: 15px;
   }
 }
-.StatPlayerTable{
-  border: 5px solid grey;
+
+.CombinedStatPlayerTable{
+border: 5px solid grey;
 width: 450px;
-height: 400px;
+height: 250px;
+margin-left:25px;
+text-align:center;
+vertical-align:middle;
+background-color:black;
+color:white;
+padding-right:15px;
+font-size: 15px;
+margin-top:-5px;
+  td{
+    padding-left:15px;
+  }
+  .WhiteStatNumber{
+    color:white;
+    text-align:right;
+    padding-right:15px;
+  }
+  .GreenStatNumber{
+    color:$green-color;
+    text-align:right;
+    padding-right:15px;
+  }
+  .YellowStatNumber{
+    color:yellow;
+    text-align:right;
+    padding-right:15px;
+  }  
+  .OrangeStatNumber{
+    color:orange;
+    text-align:right;
+    padding-right:15px;
+  }
+  .RedStatNumber{
+    color:red;
+    text-align:right;
+    padding-right:15px;
+  }
+}
+.StatPlayerTable{
+border: 5px solid grey;
+width: 450px;
+height: 333px;
 margin-left:25px;
 text-align:center;
 vertical-align:middle;
@@ -103,40 +145,11 @@ margin-top:-5px;
   }
 }
 .PosPlayerTable{
-   border: 5px solid grey;
-width: 450px;
-height: 66px;
-margin-left:25px;
-text-align:center;
-background-color:black;
-color:white;
-font-size: 15px;
-margin-top:-5px;
- td{
-   vertical-align:bottom;
- }
-  .playerFeet{
-    vertical-align:middle;
-    text-align:center;
-    padding-left:6px;
-    padding-right:6px;
-  }
-}
 
-.PlayerContaint{
-  align:center;
-  margin-left: auto;
-  margin-right: auto;
-  form input{
-    font-size: 18px;
-    padding: 10px;
-  }
-  .PlayerButtons{
-    padding-top: 40px;
-    vertical-align: top;
- 
-    
-  }
+margin-left:auto;
+margin-right:auto;
+background-image:url('posField.png');
+background-size:120px 180px;
 }
 #bid_description{
         height: 120px;
@@ -219,6 +232,15 @@ margin-top:-5px;
     text-align:center;
   }
   }
+  thead{tr{background-color: #D0D0D0;}}
+   tbody{
+    tr:nth-child(even) {
+    background-color: #F0F0F0;
+}
+    tr:nth-child(odd) {
+    background-color: #E0E0E0;
+}
+}
 }
 #ordenJugadores{
   li{
@@ -233,4 +255,8 @@ margin-top:-5px;
        display: inline;
     }
   }
+}
+.PlayerButtons{
+  padding-top:30px;
+  vertical-align: top;
 }

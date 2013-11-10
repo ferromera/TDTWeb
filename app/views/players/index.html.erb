@@ -14,7 +14,6 @@
 	<div>
 		<div><%= getPositionImage "GK" %></div>
 		<div><%= getPositionImage "CB" %></div>	
-		<div><%= getPositionImage "SWP" %></div>	
 		<div><%= getPositionImage "LB" %></div>	
 		<div><%= getPositionImage "RB" %></div>	
 		<div><%= getPositionImage "DMF" %></div>	
@@ -30,7 +29,6 @@
 	<div>
  	<div><%= check_box "position", 'PT', :checked => ((!params[:position].nil?) and params[:position][:PT]=="1" ) %></div>
     <div><%= check_box "position", 'DC', :checked => ((!params[:position].nil?) and params[:position][:DC]=="1" ) %></div>
-    <div><%= check_box "position", 'LIB', :checked => ((!params[:position].nil?) and params[:position][:LIB]=="1" ) %></div>
     <div><%= check_box "position", 'LI', :checked => ((!params[:position].nil?) and params[:position][:LI]=="1" ) %></div>
     <div><%= check_box "position", 'LD', :checked => ((!params[:position].nil?) and params[:position][:LD]=="1" ) %></div>
     <div><%= check_box "position", 'MCD', :checked => ((!params[:position].nil?) and params[:position][:MCD]=="1" ) %></div>
