@@ -382,7 +382,7 @@ module PlayersHelper
         when player.position=="RWF"
           overall = (player.attackingProwess - 25) * 0.18 + (player.ballControl - 25) * 0.22 + (player.dribbling - 25) * 0.22 + (player.lowPass - 25) * 0.05 + (player.loftedPass - 25) * 0.1 + (player.finishing - 25) * 0.12 + (player.kickingPower - 25) * 0.05 + (player.speed - 25) * 0.16 + (player.explosivePower - 25) * 0.16 + (player.bodyBalance - 25) * 0.06 + (player.stamina - 25) * 0.06 + 9 
     end
-    overall
+    overall.round
   end
   
   def getPhysicalStrength player
