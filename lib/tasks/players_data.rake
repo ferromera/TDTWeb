@@ -103,7 +103,7 @@ namespace :db do
       player.overallrating= calculateOverall(player)
 
 
-      if player.name!=nil and (player.overallrating >= 73  or player.pesPlayerId==60235)
+      if player.name!=nil and player.name== player.name.upcase and (player.overallrating >= 73  or player.pesPlayerId==60235)
       i=i+1
       player.save
       end
