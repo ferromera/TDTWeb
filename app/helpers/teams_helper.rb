@@ -113,46 +113,43 @@ module TeamsHelper
       result="<option selected=\"selected\">#{ p.alignmentpos}</option>"
       selected=p.alignmentpos
     end
-    if p.gk and selected != "GK"
+    if p.gk=="A" and selected != "GK"
       result=result+"<option>GK</option>"
     end
-    if p.swp and selected != "SWP"
-      result=result+"<option>SWP</option>"
-    end
-    if p.cb and selected != "CB"
+    if p.cb=="A" and selected != "CB"
       result=result+"<option>CB</option>"
     end
-    if p.rb and selected != "RB"
+    if p.rb=="A" and selected != "RB"
       result=result+"<option>RB</option>"
     end
-    if p.lb and selected != "LB"
+    if p.lb=="A" and selected != "LB"
       result=result+"<option>LB</option>"
     end
-    if p.dmf and selected != "DMF"
+    if p.dmf=="A" and selected != "DMF"
       result=result+"<option>DMF</option>"
     end
-    if p.cmf and selected != "CMF"
+    if p.cmf=="A" and selected != "CMF"
       result=result+"<option>CMF</option>"
     end
-    if p.rmf and selected != "RMF"
+    if p.rmf=="A" and selected != "RMF"
       result=result+"<option>RMF</option>"
     end
-    if p.lmf and selected != "LMF"
+    if p.lmf=="A" and selected != "LMF"
       result=result+"<option>LMF</option>"
     end
-    if p.amf and selected != "AMF"
+    if p.amf=="A" and selected != "AMF"
       result=result+"<option>AMF</option>"
     end
-    if p.rwf and selected != "RWF"
+    if p.rwf=="A" and selected != "RWF"
       result=result+"<option>RWF</option>"
     end
-    if p.lwf and selected != "LWF"
+    if p.lwf=="A" and selected != "LWF"
       result=result+"<option>LWF</option>"
     end
-    if p.ss and selected != "SS"
+    if p.ss=="A" and selected != "SS"
       result=result+"<option>SS</option>"
     end
-    if p.cf and selected != "CF"
+    if p.cf=="A" and selected != "CF"
       result=result+"<option>CF</option>"
     end
    result
