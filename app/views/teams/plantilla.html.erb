@@ -9,7 +9,7 @@
   <% @team.players.each do |p| %>
   <tr ><td sorttable_customkey=<%= getPositionOrder p.position %>><%= getPositionImage p.position %></td>
   	<td id="NombrePlantilla"><%=link_to p.name, p%></td>
-  	<td color=<%=get100StatColor p.overallrating %>><%=p.overallrating%></td>
+  	<td color=<%=get100StatColor p.overallrating %> style="font-size: 22px;font-weight:bold;"><%=p.overallrating%></td>
   	<td><%=p.age%></td>
   	<td><%=p.height%></td>
   	<td sorttable_customkey=<%=getPrice p.overallrating%>>$<%=getPrice p.overallrating%>M</td>
