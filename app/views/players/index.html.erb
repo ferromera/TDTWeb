@@ -67,41 +67,57 @@
 		</div> 
    	</div>
    	<div id="ordenJugadores">
-    <h4>Ordenar por:</h4>
-    <li>
+   	<div >
+    <h4 style="display: inline;padding-right:150px;">Ordenar por:  </h4><p style="display: inline">(A: ascendente , D: descendente)</p>
+    </div>
+    <li style="padding-right:20px;">
     	<p>Pos</p>
-    	<%= radio_button "player", "order", "posicionA" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionA")  %> Asc
-    	<%= radio_button "player", "order", "posicionD" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionD")  %> Desc
+    	<%= radio_button "player", "order", "posicionA" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionA")  %> A
+    	<%= radio_button "player", "order", "posicionD" , :checked => (!params[:player].nil? and params[:player][:order]=="posicionD")  %> D
     </li> 
-    <li>
+    <li style="padding-right:20px;">
     	<p>Nombre</p>
-    	<%= radio_button "player", "order", "nombreA" , :checked => (params[:player].nil? or params[:player][:order]=="nombreA")  %> Asc
-    	<%= radio_button "player", "order", "nombreD" , :checked => (!params[:player].nil? and params[:player][:order]=="nombreD")  %> Desc
+    	<%= radio_button "player", "order", "nombreA" , :checked => (params[:player].nil? or params[:player][:order]=="nombreA")  %> A
+    	<%= radio_button "player", "order", "nombreD" , :checked => (!params[:player].nil? and params[:player][:order]=="nombreD")  %> D
     </li>  
-    <li>
+    <li style="padding-right:20px;">
     	<p>Edad</p>
-    	<%= radio_button "player", "order", "edadA" , :checked => (!params[:player].nil? and params[:player][:order]=="edadA")  %> Asc
-    	<%= radio_button "player", "order", "edadD" , :checked => (!params[:player].nil? and params[:player][:order]=="edadD")  %> Desc
+    	<%= radio_button "player", "order", "edadA" , :checked => (!params[:player].nil? and params[:player][:order]=="edadA")  %> A
+    	<%= radio_button "player", "order", "edadD" , :checked => (!params[:player].nil? and params[:player][:order]=="edadD")  %> D
     </li>  
-    <li>
+    <li style="padding-right:20px;">
     	<p>Nac</p>
-    	<%= radio_button "player", "order", "nacionalidadA" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadA")  %> Asc
-    	<%= radio_button "player", "order", "nacionalidadD" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadD")  %> Desc
+    	<%= radio_button "player", "order", "nacionalidadA" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadA")  %> A
+    	<%= radio_button "player", "order", "nacionalidadD" , :checked => (!params[:player].nil? and params[:player][:order]=="nacionalidadD")  %> D
     </li>  
-    <li>
-    	<p>Valoración</p>
-    	<%= radio_button "player", "order", "valoracionA" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionA")  %> Asc
-    	<%= radio_button "player", "order", "valoracionD" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionD")  %> Desc
+    <li style="padding-right:20px;">
+    	<p>Valorac.</p>
+    	<%= radio_button "player", "order", "valoracionA" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionA")  %> A
+    	<%= radio_button "player", "order", "valoracionD" , :checked => (!params[:player].nil? and params[:player][:order]=="valoracionD")  %> D
     </li>  
-    <li>
+    <li style="padding-right:20px;">
     	<p>Club</p>
-    	<%= radio_button "player", "order", "clubA" , :checked => (!params[:player].nil? and params[:player][:order]=="clubA")  %> Asc
-    	<%= radio_button "player", "order", "clubD" , :checked => (!params[:player].nil? and params[:player][:order]=="clubD")  %> Desc
+    	<%= radio_button "player", "order", "clubA" , :checked => (!params[:player].nil? and params[:player][:order]=="clubA")  %> A
+    	<%= radio_button "player", "order", "clubD" , :checked => (!params[:player].nil? and params[:player][:order]=="clubD")  %> D
     </li>  
      
 	</div>
 </div> 
 </p>   
+<div style="padding-bottom:30px; padding-left:20px;">
+	Jugadores de cualquier equipo
+	<div style="display: inline;padding-left:10px;padding-right:30px;" >
+	 <%= radio_button "TDTteam", 'value', "all", :checked => (params[:TDTteam].nil?or((!params[:TDTteam].nil?) and params[:TDTteam][:value]=="all" )) %>
+	</div>
+	Solo jugadores sin equipo del torneo  
+	<div style="display: inline;padding-left:10px;padding-right:30px;" >
+	 <%= radio_button "TDTteam", 'value',"noTDT", :checked => ((!params[:TDTteam].nil?) and params[:TDTteam][:value]=="noTDT" ) %>
+	</div>
+	Solo jugadores con equipo del torneo  
+	<div style="display: inline;padding-left:10px;padding-right:30px;" >
+	 <%= radio_button "TDTteam", 'value', "TDT",:checked => ((!params[:TDTteam].nil?) and params[:TDTteam][:value]=="TDT" ) %>
+	</div>
+</div>
 <p class="button"><%= submit_tag "Buscar"  %> </p>   
 <% end %>  
 

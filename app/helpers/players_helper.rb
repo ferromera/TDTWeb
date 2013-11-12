@@ -206,6 +206,21 @@ module PlayersHelper
       end
       s
   end
+  def tdt_team_filter pls , team
+    if !team.nil? and team[:value]!="all"
+      r=Array.new
+      pls.each do |p|
+      if  team[:value]=="TDT" and !p.team.nil?
+        r<<p
+      elsif team[:value]=="noTDT" and p.team.nil?
+        r<<p
+      end
+     end
+     r
+     else
+       pls
+    end
+  end
   def pos_filter pls , pos
     return pls if pos.nil?
     r=Array.new
